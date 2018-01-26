@@ -8,6 +8,7 @@ public class InclinedPlanePosition : MonoBehaviour {
     public bool limitForward = false;
     public bool limitSideways = true;
 
+    // (forward, sideways)
     public Vector2 Pos {
         get { return pos; }
         set {

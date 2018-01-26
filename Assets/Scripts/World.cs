@@ -6,7 +6,7 @@ public class World : MonoBehaviour
 {
     public GameObject player;
     public GameObject logicalPlane;
-    public GameObject[] obstaclePrefabs;
+    public EnemyTest[] obstaclePrefabs;
 
     public static World instance { get; private set; }
 
@@ -20,7 +20,7 @@ public class World : MonoBehaviour
     }
 
     public AppState currentState;
-    public ClimbGameState climbState;
+    public ClimbGameState climbState = new ClimbGameState();
 
     public Vector3 forward
     {
@@ -51,11 +51,22 @@ public class World : MonoBehaviour
     {
         get { return logicalPlane.transform.localScale.y * 0.5f; }
     }
+
+    public float spawnForward
+    {
+        get { return maxForward * 2; }
+    }
+
+    public float despawnForward
+    {
+        get { return minForward * 2; }
+    }
  
 
     public void Start()
     {
         if (instance == null) instance = this;
+        climbState.nextEnemySpawnTime = Time.time;
     }
 
     public void Update()
@@ -83,50 +94,40 @@ public class World : MonoBehaviour
         }
     }
 
-    public void MoveTransformOnInclinedPlane(Transform t,
-                                             float forwardDelta, float sidewaysDelta,
-                                             bool limitForward = false, bool limitSideways = true)
-    {
-        var p = t.position;
-        var plane = logicalPlane.transform.position;
-        plane.z = 0;
-
-        p -= plane;
-        float f = Vector3.Project(p, forward).magnitude;
-        if (f == 0) f = -Vector3.Project(p, -forward).magnitude;
-        float s = Vector3.Project(p, sideways).magnitude;
-        if (s == 0) s = -Vector3.Project(p, -sideways).magnitude;
-
-        f += forwardDelta;
-        s += sidewaysDelta;
-        player.GetComponent<Player>().f = f;
-        player.GetComponent<Player>().s = s;
-
-        float minf = minForward;
-        float maxf = maxForward;
-        float mins = minSideways;
-        float maxs = maxSideways;
-
-        // if (limitForward)
-        //     f = Mathf.Clamp(f, minf, maxf);
-
-        // if (limitSideways)
-        //     s = Mathf.Clamp(s, mins, maxs);
-
-        t.position = plane + f * forward + s * sideways;
-    }
-
     private void ClimbGameUpdate()
     {
-        for (int i = 0; i < climbState.enemies.Count; ++i) {
+        float delta = Time.deltaTime;
 
+        if (Time.time > climbState.nextEnemySpawnTime) {
+            var prefab = obstaclePrefabs[Random.Range(0, obstaclePrefabs.Length)];
+            var e = Instantiate(prefab).GetComponent<EnemyTest>();
+            climbState.enemies.Add(e);
+            float side = maxSideways * 2.0f / 3.0f;
+            e.Pos = new Vector2(spawnForward, Random.Range(-1, 2) * side);
+
+            climbState.nextEnemySpawnTime += Random.Range(climbState.minEmenySpawnDelta,
+                                                          climbState.maxEnemySpawnDelta);
+        }
+
+        for (int i = 0; i < climbState.enemies.Count; ++i) {
+            var e = climbState.enemies[i];
+            e.Pos -= new Vector2(climbState.globalSpeed * delta, 0);
+
+            if (e.Pos.x < despawnForward) {
+                climbState.enemies[i] = climbState.enemies[climbState.enemies.Count-1];
+                climbState.enemies.RemoveAt(climbState.enemies.Count-1);
+                i--;
+                Destroy(e.gameObject);
+            }
         }
     }
 }
 
 public class ClimbGameState
 {
-    public float nextEnemySpawnTime;
-    public float globalSpeed;
+    public float nextEnemySpawnTime = 0;
+    public float globalSpeed = 2.0f;
+    public float minEmenySpawnDelta = 1.0f;
+    public float maxEnemySpawnDelta = 7.0f;
     public List<EnemyTest> enemies = new List<EnemyTest>(32);
 }

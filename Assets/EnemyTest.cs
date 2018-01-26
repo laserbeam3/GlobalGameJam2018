@@ -6,14 +6,19 @@ using UnityEngine;
 public class EnemyTest : MonoBehaviour
 {
     public float speed = 0f;
-    private InclinedPlanePosition inclined;
 
-    void Start ()
+    private InclinedPlanePosition inclined;
+    public Vector2 Pos {
+        get { return inclined.Pos; }
+        set { inclined.Pos = value; }
+    }
+
+    void Awake()
     {
         inclined = GetComponent<InclinedPlanePosition>();
     }
 
-    void Update ()
+    void Update()
     {
         inclined.Pos -= new Vector2(speed * Time.deltaTime, 0);
     }

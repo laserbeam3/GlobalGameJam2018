@@ -12,19 +12,24 @@ public class Player : MonoBehaviour
     public float f;
     public float s;
 
-    void Start ()
+    public Vector2 Pos {
+        get { return inclined.Pos; }
+        set { inclined.Pos = value; }
+    }
+
+    void Awake()
     {
         inclined = GetComponent<InclinedPlanePosition>();
         inclined.limitForward = true;
     }
 
-    void Update ()
+    void Update()
     {
         float delta = Time.deltaTime;
 
         float fwdInput  = Input.GetAxisRaw("Horizontal") * fwdSpeed  * delta;
         float sideInput = Input.GetAxisRaw("Vertical")   * sideSpeed * delta;
 
-        inclined.Pos += new Vector2(fwdInput, sideInput);
+        Pos += new Vector2(fwdInput, sideInput);
     }
 }
