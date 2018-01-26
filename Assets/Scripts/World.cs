@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class World : MonoBehaviour
 {
-    public GameObject player;
+    public Player player;
     public GameObject logicalPlane;
     public EnemyTest[] obstaclePrefabs;
 
@@ -52,6 +52,11 @@ public class World : MonoBehaviour
         get { return logicalPlane.transform.localScale.y * 0.5f; }
     }
 
+    public float widthSideways
+    {
+        get { return logicalPlane.transform.localScale.y * 1f; }
+    }
+
     public float spawnForward
     {
         get { return maxForward * 2; }
@@ -61,6 +66,8 @@ public class World : MonoBehaviour
     {
         get { return minForward * 2; }
     }
+
+    public int laneCount = 3;
  
 
     public void Start()
@@ -102,8 +109,11 @@ public class World : MonoBehaviour
             var prefab = obstaclePrefabs[Random.Range(0, obstaclePrefabs.Length)];
             var e = Instantiate(prefab).GetComponent<EnemyTest>();
             climbState.enemies.Add(e);
-            float side = maxSideways * 2.0f / 3.0f;
-            e.Pos = new Vector2(spawnForward, Random.Range(-1, 2) * side);
+            float laneBorder = widthSideways / (float) (laneCount * 2f);
+
+            float side = minSideways + laneBorder +
+                         Random.Range(0, laneCount) * laneBorder * 2.0f;
+            e.pos = new Vector2(spawnForward, Random.Range(-1, 2) * side);
 
             climbState.nextEnemySpawnTime += Random.Range(climbState.minEmenySpawnDelta,
                                                           climbState.maxEnemySpawnDelta);
@@ -111,13 +121,17 @@ public class World : MonoBehaviour
 
         for (int i = 0; i < climbState.enemies.Count; ++i) {
             var e = climbState.enemies[i];
-            e.Pos -= new Vector2(climbState.globalSpeed * delta, 0);
+            e.pos -= new Vector2(climbState.globalSpeed * delta, 0);
 
-            if (e.Pos.x < despawnForward) {
+            if (e.pos.x < despawnForward) {
                 climbState.enemies[i] = climbState.enemies[climbState.enemies.Count-1];
                 climbState.enemies.RemoveAt(climbState.enemies.Count-1);
                 i--;
                 Destroy(e.gameObject);
+            }
+
+            if (e.inclined.CollidesWith(player.inclined)) {
+                // Do collision logic
             }
         }
     }
@@ -128,6 +142,6 @@ public class ClimbGameState
     public float nextEnemySpawnTime = 0;
     public float globalSpeed = 2.0f;
     public float minEmenySpawnDelta = 1.0f;
-    public float maxEnemySpawnDelta = 7.0f;
+    public float maxEnemySpawnDelta = 4.0f;
     public List<EnemyTest> enemies = new List<EnemyTest>(32);
 }

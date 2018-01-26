@@ -5,16 +5,16 @@ using UnityEngine;
 [RequireComponent(typeof(InclinedPlanePosition))]
 public class Player : MonoBehaviour
 {
-    private InclinedPlanePosition inclined;
+    public InclinedPlanePosition inclined { get; private set; }
     public float fwdSpeed = 4.0f;
     public float sideSpeed = 6.0f;
 
     public float f;
     public float s;
 
-    public Vector2 Pos {
-        get { return inclined.Pos; }
-        set { inclined.Pos = value; }
+    public Vector2 pos {
+        get { return inclined.pos; }
+        set { inclined.pos = value; }
     }
 
     void Awake()
@@ -30,6 +30,6 @@ public class Player : MonoBehaviour
         float fwdInput  = Input.GetAxisRaw("Horizontal") * fwdSpeed  * delta;
         float sideInput = Input.GetAxisRaw("Vertical")   * sideSpeed * delta;
 
-        Pos += new Vector2(fwdInput, sideInput);
+        pos += new Vector2(fwdInput, sideInput);
     }
 }

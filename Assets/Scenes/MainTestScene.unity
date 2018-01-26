@@ -340,12 +340,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e52a9a1987d774d13822373d9ed771ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 1739791227}
+  player: {fileID: 1739791230}
   logicalPlane: {fileID: 78191597}
   obstaclePrefabs:
   - {fileID: 114840442448110770, guid: fcf295951dbd7499583d7206091e4895, type: 2}
   - {fileID: 114031703294908674, guid: 5046003029096447bb2a17b02e291610, type: 2}
   currentState: 2
+  laneCount: 3
 --- !u!4 &267658440
 Transform:
   m_ObjectHideFlags: 0
@@ -596,6 +597,12 @@ Transform:
   m_PrefabParentObject: {fileID: 4380215941286086, guid: cb2dd7d3176364dc5a21554a081584a8,
     type: 2}
   m_PrefabInternal: {fileID: 206731752}
+--- !u!114 &1739791230 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114856360875402612, guid: cb2dd7d3176364dc5a21554a081584a8,
+    type: 2}
+  m_PrefabInternal: {fileID: 206731752}
+  m_Script: {fileID: 11500000, guid: a33e451531c654613b455544e1d52670, type: 3}
 --- !u!114 &1739791231
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -609,6 +616,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   limitForward: 0
   limitSideways: 1
+  halfWidth: 1.25
 --- !u!1 &1838315594
 GameObject:
   m_ObjectHideFlags: 0

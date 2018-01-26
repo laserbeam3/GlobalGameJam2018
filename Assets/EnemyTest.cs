@@ -7,10 +7,10 @@ public class EnemyTest : MonoBehaviour
 {
     public float speed = 0f;
 
-    private InclinedPlanePosition inclined;
-    public Vector2 Pos {
-        get { return inclined.Pos; }
-        set { inclined.Pos = value; }
+    public InclinedPlanePosition inclined { get; private set; }
+    public Vector2 pos {
+        get { return inclined.pos; }
+        set { inclined.pos = value; }
     }
 
     void Awake()
@@ -20,6 +20,6 @@ public class EnemyTest : MonoBehaviour
 
     void Update()
     {
-        inclined.Pos -= new Vector2(speed * Time.deltaTime, 0);
+        inclined.pos -= new Vector2(speed * Time.deltaTime, 0);
     }
 }
