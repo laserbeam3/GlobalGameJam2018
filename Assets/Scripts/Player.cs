@@ -2,32 +2,29 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(InclinedPlanePosition))]
 public class Player : MonoBehaviour
 {
+    private InclinedPlanePosition inclined;
+    public float fwdSpeed = 4.0f;
+    public float sideSpeed = 6.0f;
 
-    public float xSpeed = 4.0f;
-    public float ySpeed = 4.0f;
+    public float f;
+    public float s;
 
     void Start ()
     {
-
+        inclined = GetComponent<InclinedPlanePosition>();
+        inclined.limitForward = true;
     }
 
-    // Update is called once per frame
     void Update ()
     {
         float delta = Time.deltaTime;
 
-        float xInput = Input.GetAxisRaw("Horizontal") * xSpeed * delta;
-        float yInput = Input.GetAxisRaw("Vertical")   * ySpeed * delta;
+        float fwdInput  = Input.GetAxisRaw("Horizontal") * fwdSpeed  * delta;
+        float sideInput = Input.GetAxisRaw("Vertical")   * sideSpeed * delta;
 
-        Transform logicalPlane = World.instance.logicalPlane.transform;
-        Vector3 forward = logicalPlane.right;
-        Vector3 sideways = logicalPlane.up;
-
-        Vector3 movement = forward * xInput + sideways * yInput;
-
-        transform.localPosition += movement;
-
+        inclined.Pos += new Vector2(fwdInput, sideInput);
     }
 }
