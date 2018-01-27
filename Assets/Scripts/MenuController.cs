@@ -34,7 +34,7 @@ public class MenuController : MonoBehaviour {
                                                                 "to", MenuVisiblePos,
                                                                 "easeType", "easeOutExpo",
                                                                 "loopType", "none",
-                                                                "time", 2f,
+                                                                "time", 1.8f,
                                                                 "onupdatetarget", gameObject,
                                                                 "onupdate", "MoveMenu"));
             } break;

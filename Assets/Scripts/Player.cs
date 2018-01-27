@@ -17,6 +17,14 @@ public class Player : MonoBehaviour
         set { inclined.pos = value; }
     }
 
+    public int maxHP = 3;
+    private int _health;
+    public int health = 3;
+    // public int health {
+    //     get { return _health; }
+    //     set { _health = Mathf.Clamp(value, 0, maxHP); }
+    // }
+
     void Awake()
     {
         inclined = GetComponent<InclinedPlanePosition>();
