@@ -224,6 +224,16 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 212557135099838804, guid: cb2dd7d3176364dc5a21554a081584a8,
+        type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 8bd4682e9dc0b46b7950abb41da38df6,
+        type: 3}
+    - target: {fileID: 4380215941286086, guid: cb2dd7d3176364dc5a21554a081584a8, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: cb2dd7d3176364dc5a21554a081584a8, type: 2}
   m_IsPrefabParent: 0
@@ -482,9 +492,9 @@ Camera:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 414883400}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
-  m_ClearFlags: 4
+  m_ClearFlags: 3
   m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
@@ -567,6 +577,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e4b53cb8d173423fbfe1f544b27b26f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  yodelerCamera: {fileID: 414883403}
   yodelerGameArena: {fileID: 2007837517}
   bpm: 120
   yodelerGameStartTime: 0
@@ -801,6 +812,7 @@ MonoBehaviour:
   mainCamera: {fileID: 1415613715}
   menuController: {fileID: 1792928977}
   climbGame: {fileID: 267658439}
+  yodelerGame: {fileID: 482064073}
   debugEnabled: 1
   startingState: 0
 --- !u!4 &1252254632
@@ -873,7 +885,7 @@ Camera:
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 4294967039
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -1060,6 +1072,11 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1593478026}
+--- !u!1 &1739791227 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1573211392555310, guid: cb2dd7d3176364dc5a21554a081584a8,
+    type: 2}
+  m_PrefabInternal: {fileID: 206731752}
 --- !u!4 &1739791229 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4380215941286086, guid: cb2dd7d3176364dc5a21554a081584a8,
@@ -1071,6 +1088,23 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 206731752}
   m_Script: {fileID: 11500000, guid: a33e451531c654613b455544e1d52670, type: 3}
+--- !u!95 &1739791232
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1739791227}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 533f04a2985df42e486e069d053e1227, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &1792928972
 GameObject:
   m_ObjectHideFlags: 0

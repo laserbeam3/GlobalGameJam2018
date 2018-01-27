@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class YodelerGame : MonoBehaviour
 {
+    public Camera yodelerCamera;
     public Transform yodelerGameArena;
 
     public float bpm = 120.0f;
@@ -22,13 +23,29 @@ public class YodelerGame : MonoBehaviour
     public Note beatBarPrefab;
     public List<Note> activeNotes;
 
-    bool isRunning = true;
+    bool isRunning = false;
 
-    void StartYodelerGame()
+    void Start()
+    {
+        EndYodelerGame();
+    }
+
+    public void StartYodelerGame()
     {
         yodelerGameStartTime = Time.time;
         nextBeatBarTime = 0;
         isRunning = true;
+        yodelerCamera.enabled = true;
+    }
+
+    public void EndYodelerGame()
+    {
+        for (int i = 0; i < activeNotes.Count; ++i) {
+            Destroy(activeNotes[i].gameObject);
+        }
+        activeNotes.Clear();
+        isRunning = false;
+        yodelerCamera.enabled = false;
     }
 
     void Update ()

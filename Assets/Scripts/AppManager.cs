@@ -19,6 +19,7 @@ public class AppManager : MonoBehaviour
     public CameraController mainCamera;
     public MenuController menuController;
     public ClimbGame climbGame;
+    public YodelerGame yodelerGame;
     public bool debugEnabled = true;
 
     public static AppManager instance { get; private set; }
@@ -91,9 +92,16 @@ public class AppManager : MonoBehaviour
     }
 
     public static void SwitchState(AppState newState) {
+        if (newState == currentState) return;
+
         instance.mainCamera.AnimateTransition(newState);
         instance.menuController.AnimateTransition(newState);
         instance.climbGame.SetAppState(newState);
+
+        if (newState == AppState.YODELER_GAME)
+            instance.yodelerGame.StartYodelerGame();
+        else
+            instance.yodelerGame.EndYodelerGame();
 
         switch (newState) {
             case AppState.MENU: {
