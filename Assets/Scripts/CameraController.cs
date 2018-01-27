@@ -18,6 +18,23 @@ public class CameraController : MonoBehaviour {
         cam = GetComponent<Camera>();
     }
 
+    public void AnimateToYodelerPos()
+    {
+        iTween.Stop(gameObject);
+        if (transform.position != YodelerCameraPos)
+            iTween.MoveTo(gameObject, iTween.Hash("position", YodelerCameraPos,
+                                                  "easeType", "easeInOutExpo",
+                                                  "loopType", "none",
+                                                  "time", 3f));
+        if (cam.orthographicSize != YodelerCameraSize)
+            iTween.ValueTo(gameObject, iTween.Hash("from", cam.orthographicSize,
+                                                   "to", YodelerCameraSize,
+                                                   "onupdate", "UpdateCamSize",
+                                                   "easeType", "easeInOutExpo",
+                                                   "loopType", "none",
+                                                   "time", 3f));
+    }
+
     public void AnimateTransition(AppState newState)
     {
         iTween.Stop(gameObject);
@@ -59,18 +76,7 @@ public class CameraController : MonoBehaviour {
 
             case AppState.CLIMB_TO_YODELER_TRANSITION:
             case AppState.YODELER_GAME: {
-                if (transform.position != YodelerCameraPos)
-                    iTween.MoveTo(gameObject, iTween.Hash("position", YodelerCameraPos,
-                                                          "easeType", "easeInOutExpo",
-                                                          "loopType", "none",
-                                                          "time", 3f));
-                if (cam.orthographicSize != YodelerCameraSize)
-                    iTween.ValueTo(gameObject, iTween.Hash("from", cam.orthographicSize,
-                                                           "to", YodelerCameraSize,
-                                                           "onupdate", "UpdateCamSize",
-                                                           "easeType", "easeInOutExpo",
-                                                           "loopType", "none",
-                                                           "time", 3f));
+                AnimateToYodelerPos();
             } break;
         }
     }

@@ -30,9 +30,14 @@ public class Player : MonoBehaviour
         inclined.limitForward = true;
     }
 
+    void Start()
+    {
+        pos = pos;
+    }
+
     void Update()
     {
-        if (AppManager.currentState != AppState.CLIMB_GAME) return;
+        if (!ClimbGame.instance.allowPlayerMovement) return;
 
         float delta = Time.deltaTime;
 

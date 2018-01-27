@@ -7,6 +7,7 @@ public class ClimbGame : MonoBehaviour
     public Player player;
     public GameObject logicalPlane;
     public EnemyTest[] obstaclePrefabs;
+    public ScrollingMidground midGround;
 
     public static ClimbGame instance { get; private set; }
 
@@ -17,6 +18,7 @@ public class ClimbGame : MonoBehaviour
     public List<EnemyTest> enemies            = new List<EnemyTest>(32);
 
     private bool isRunning = false;
+    public bool allowPlayerMovement = false;
 
     public Vector3 forward
     {
@@ -65,14 +67,51 @@ public class ClimbGame : MonoBehaviour
 
     public int laneCount = 3;
  
+    public void StartGame()
+    {
+        instance.player.health = instance.player.maxHP;
+        KillAllEnemies();
+        nextEnemySpawnTime = Time.time;
+        AppManager.CallWithDelay(() => {PrepareEnd();}, 2f);
+        allowPlayerMovement = true;
+    }
+
+    private float timeToRun = 3f;
+    public void PrepareEnd()
+    {
+        float distance = midGround.StopTilingAndGetDistanceToEnd();
+        float timeToEnd = distance / globalSpeed;
+        Debug.Log(distance + " " + timeToEnd);
+        float timeToStopInput = timeToEnd - timeToRun;
+        AppManager.CallWithDelay(() => {StopInputAndMoveToYolderPose();}, timeToStopInput);
+    }
+
+    public void StopInputAndMoveToYolderPose()
+    {
+        allowPlayerMovement = false;
+        iTween.MoveTo(player.gameObject, iTween.Hash("position", new Vector3(6.7f, 2f, 0f),
+                                                     "easeType", "linear",
+                                                     "loopType", "none",
+                                                     "time", timeToRun));
+        AppManager.instance.mainCamera.AnimateToYodelerPos();
+
+        // iTween.ScaleTo(player.gameObject, iTween.Hash("scale", new Vector3(0.5f, 0.5f, 0.5f),
+        //                                               "easeType", "linear",
+        //                                               "loopType", "none",
+        //                                               "time", timeToRun));
+
+    }
+
     public void SetAppState(AppState newState) {
         isRunning = (newState == AppState.CLIMB_GAME);
+        if (isRunning) StartGame();
     }
 
     public void Start()
     {
         if (instance == null) instance = this;
-        nextEnemySpawnTime = Time.time;
+        float rot = Mathf.Atan2(forward.y, forward.x) * Mathf.Rad2Deg;
+        midGround.transform.eulerAngles = new Vector3(0, 0, rot);
     }
 
     public void KillAllEnemies() {
@@ -115,5 +154,7 @@ public class ClimbGame : MonoBehaviour
                 // Do collision logic
             }
         }
+
+        midGround.Move(-globalSpeed * delta);
     }
 }
