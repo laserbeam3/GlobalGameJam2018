@@ -75,6 +75,13 @@ public class ClimbGame : MonoBehaviour
         nextEnemySpawnTime = Time.time;
     }
 
+    public void KillAllEnemies() {
+        for (int i = 0; i < enemies.Count; ++i) {
+            Destroy(enemies[i].gameObject);
+        }
+        enemies.Clear();
+    }
+
     public void Update()
     {
         if (AppManager.currentState != AppState.CLIMB_GAME) return;

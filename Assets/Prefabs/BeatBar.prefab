@@ -9,74 +9,58 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1573211392555310}
+  m_RootGameObject: {fileID: 1617265837749012}
   m_IsPrefabParent: 1
---- !u!1 &1573211392555310
+--- !u!1 &1617265837749012
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 5
   m_Component:
-  - component: {fileID: 4380215941286086}
-  - component: {fileID: 212557135099838804}
-  - component: {fileID: 114856360875402612}
-  - component: {fileID: 114187735694292596}
-  m_Layer: 0
-  m_Name: Player
+  - component: {fileID: 4606446248426274}
+  - component: {fileID: 212814559271498782}
+  - component: {fileID: 114998918570685716}
+  m_Layer: 8
+  m_Name: BeatBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4380215941286086
+--- !u!4 &4606446248426274
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1573211392555310}
+  m_GameObject: {fileID: 1617265837749012}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -4.26, y: -2.1, z: 0.1265036}
-  m_LocalScale: {x: 0.8, y: 1, z: 1}
+  m_LocalPosition: {x: 4.37, y: -3.95, z: 0}
+  m_LocalScale: {x: 1, y: 0.007320295, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &114187735694292596
+--- !u!114 &114998918570685716
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1573211392555310}
+  m_GameObject: {fileID: 1617265837749012}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4b07347acfa4545378443416d0c420fe, type: 3}
+  m_Script: {fileID: 11500000, guid: 7fc91178d2fca42118849bda68262c03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  limitForward: 0
-  limitSideways: 1
-  halfWidth: 1.25
---- !u!114 &114856360875402612
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1573211392555310}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a33e451531c654613b455544e1d52670, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fwdSpeed: 4
-  sideSpeed: 6
-  f: 0
-  s: 0
---- !u!212 &212557135099838804
+  spawnTime: 0
+  key: 
+  interactible: 0
+--- !u!212 &212814559271498782
 SpriteRenderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1573211392555310}
+  m_GameObject: {fileID: 1617265837749012}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -105,12 +89,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 5d9f72e74f18a45538fb1be7f6ae94bf, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 507058d31564d451eabde72e1d00d570, type: 3}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.116}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.67, y: 0.94}
+  m_Size: {x: 16, y: 16}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
