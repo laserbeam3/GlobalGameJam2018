@@ -25,6 +25,8 @@ public class Player : MonoBehaviour
 
     void Update()
     {
+        if (AppManager.currentState != AppState.CLIMB_GAME) return;
+
         float delta = Time.deltaTime;
 
         float fwdInput  = Input.GetAxisRaw("Horizontal") * fwdSpeed  * delta;
@@ -32,4 +34,5 @@ public class Player : MonoBehaviour
 
         pos += new Vector2(fwdInput, sideInput);
     }
+
 }

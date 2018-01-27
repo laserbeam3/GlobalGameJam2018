@@ -17,6 +17,7 @@ public class AppManager : MonoBehaviour
 {
     public Player player;
     public CameraController mainCamera;
+    public MenuController menuController;
     public ClimbGame climbGame;
     public bool debugEnabled = true;
 
@@ -91,6 +92,7 @@ public class AppManager : MonoBehaviour
 
     public static void SwitchState(AppState newState) {
         instance.mainCamera.AnimateTransition(newState);
+        instance.menuController.AnimateTransition(newState);
         instance.climbGame.SetAppState(newState);
 
         switch (newState) {

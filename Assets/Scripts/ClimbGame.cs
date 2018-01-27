@@ -77,12 +77,8 @@ public class ClimbGame : MonoBehaviour
 
     public void Update()
     {
-        if (AppManager.currentState == AppState.CLIMB_GAME)
-            ClimbGameUpdate();
-    }
+        if (AppManager.currentState != AppState.CLIMB_GAME) return;
 
-    private void ClimbGameUpdate()
-    {
         float delta = Time.deltaTime;
 
         if (Time.time > nextEnemySpawnTime) {

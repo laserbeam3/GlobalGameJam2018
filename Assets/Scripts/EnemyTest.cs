@@ -20,6 +20,8 @@ public class EnemyTest : MonoBehaviour
 
     void Update()
     {
+        if (AppManager.currentState != AppState.CLIMB_GAME) return;
+
         inclined.pos -= new Vector2(speed * Time.deltaTime, 0);
     }
 }
