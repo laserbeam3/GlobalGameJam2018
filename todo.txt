@@ -1,0 +1,18 @@
+- Health & damage
+- Player attack
+- Main menu
+- Transition to yodeler scene
+- Yodeler game
+- Victory aliens
+- Death screen
+- Handle animations
+- Eyes/Mouth
+- Score
+- Player rewards
+- Narrative elements?
+- Background music
+- Sound effects
+- World decorations
+- Main game UI (health/energy)
+- Enemy variety
+- Enemy AI

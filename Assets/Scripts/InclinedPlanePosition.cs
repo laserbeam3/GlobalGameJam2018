@@ -15,24 +15,24 @@ public class InclinedPlanePosition : MonoBehaviour {
         set {
             _pos = value;
             if (limitForward)
-                _pos.x = Mathf.Clamp(_pos.x, World.instance.minForward,
-                                             World.instance.maxForward);
+                _pos.x = Mathf.Clamp(_pos.x, ClimbGame.instance.minForward,
+                                             ClimbGame.instance.maxForward);
             if (limitSideways)
-                _pos.y = Mathf.Clamp(_pos.y, World.instance.minSideways,
-                                             World.instance.maxSideways);
+                _pos.y = Mathf.Clamp(_pos.y, ClimbGame.instance.minSideways,
+                                             ClimbGame.instance.maxSideways);
 
-            var p = World.instance.logicalPlane.transform.position;
+            var p = ClimbGame.instance.logicalPlane.transform.position;
             p.z = 0;
 
-            transform.position = p + World.instance.forward  * _pos.x +
-                                     World.instance.sideways * _pos.y;
+            transform.position = p + ClimbGame.instance.forward  * _pos.x +
+                                     ClimbGame.instance.sideways * _pos.y;
         }
     }
 
     public int lane {
         get {
-            return (int)((pos.y - World.instance.minSideways) *
-                         World.instance.laneCount / World.instance.widthSideways);
+            return (int)((pos.y - ClimbGame.instance.minSideways) *
+                         ClimbGame.instance.laneCount / ClimbGame.instance.widthSideways);
         }
     }
 
