@@ -72,7 +72,7 @@ public class ClimbGame : MonoBehaviour
         instance.player.health = instance.player.maxHP;
         KillAllEnemies();
         nextEnemySpawnTime = Time.time;
-        AppManager.CallWithDelay(() => {PrepareEnd();}, 2f);
+        //AppManager.CallWithDelay(() => {PrepareEnd();}, 2f);
         allowPlayerMovement = true;
     }
 

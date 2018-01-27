@@ -1630,7 +1630,7 @@ MonoBehaviour:
   GameCameraSize: 5
   MainMenuCameraPos: {x: 1.15, y: 10.42, z: -10}
   MainMenuCameraSize: 5
-  YodelerCameraPos: {x: 14.9, y: -1.3, z: -10}
+  YodelerCameraPos: {x: 14.9, y: 0, z: -10}
   YodelerCameraSize: 7
 --- !u!1 &1493778998
 GameObject:
