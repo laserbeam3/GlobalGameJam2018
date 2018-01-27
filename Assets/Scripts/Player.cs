@@ -19,11 +19,10 @@ public class Player : MonoBehaviour
 
     public int maxHP = 3;
     private int _health;
-    public int health = 3;
-    // public int health {
-    //     get { return _health; }
-    //     set { _health = Mathf.Clamp(value, 0, maxHP); }
-    // }
+    public int health {
+        get { return _health; }
+        set { _health = Mathf.Clamp(value, 0, maxHP); }
+    }
 
     void Awake()
     {
