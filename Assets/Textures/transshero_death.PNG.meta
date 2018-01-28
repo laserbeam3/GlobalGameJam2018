@@ -1,0 +1,617 @@
+fileFormatVersion: 2
+guid: b9f61b6a778574f93b220edac2fd90e8
+timeCreated: 1517141948
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: transshero_death_0
+    21300002: transshero_death_1
+    21300004: transshero_death_2
+    21300006: transshero_death_3
+    21300008: transshero_death_4
+    21300010: transshero_death_5
+    21300012: transshero_death_6
+    21300014: transshero_death_7
+    21300016: transshero_death_8
+    21300018: transshero_death_9
+    21300020: transshero_death_10
+    21300022: transshero_death_11
+    21300024: transshero_death_12
+    21300026: transshero_death_13
+    21300028: transshero_death_14
+    21300030: transshero_death_15
+    21300032: transshero_death_16
+    21300034: transshero_death_17
+    21300036: transshero_death_18
+    21300038: transshero_death_19
+    21300040: transshero_death_20
+    21300042: transshero_death_21
+    21300044: transshero_death_22
+    21300046: transshero_death_23
+    21300048: transshero_death_24
+    21300050: transshero_death_25
+    21300052: transshero_death_26
+    21300054: transshero_death_27
+    21300056: transshero_death_28
+    21300058: transshero_death_29
+    21300060: transshero_death_30
+    21300062: transshero_death_31
+    21300064: transshero_death_32
+    21300066: transshero_death_33
+  externalObjects: {}
+  serializedVersion: 4
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -1
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 200
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - buildTarget: DefaultTexturePlatform
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - buildTarget: Standalone
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - buildTarget: Android
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - buildTarget: WebGL
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: transshero_death_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2913
+        width: 824
+        height: 971
+      alignment: 9
+      pivot: {x: 0.5, y: 0.13}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: transshero_death_1
+      rect:
+        serializedVersion: 2
+        x: 824
+        y: 2913
+        width: 824
+        height: 971
+      alignment: 9
+      pivot: {x: 0.5, y: 0.13}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: transshero_death_2
+      rect:
+        serializedVersion: 2
+        x: 1648
+        y: 2913
+        width: 824
+        height: 971
+      alignment: 9
+      pivot: {x: 0.5, y: 0.13}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: transshero_death_3
+      rect:
+        serializedVersion: 2
+        x: 2472
+        y: 2913
+        width: 824
+        height: 971
+      alignment: 9
+      pivot: {x: 0.5, y: 0.13}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: transshero_death_4
+      rect:
+        serializedVersion: 2
+        x: 3296
+        y: 2913
+        width: 824
+        height: 971
+      alignment: 9
+      pivot: {x: 0.5, y: 0.13}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: transshero_death_5
+      rect:
+        serializedVersion: 2
+        x: 4120
+        y: 2913
+        width: 824
+        height: 971
+      alignment: 9
+      pivot: {x: 0.5, y: 0.13}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: transshero_death_6
+      rect:
+        serializedVersion: 2
+        x: 4944
+        y: 2913
+        width: 824
+        height: 971
+      alignment: 9
+      pivot: {x: 0.5, y: 0.13}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: transshero_death_7
+      rect:
+        serializedVersion: 2
+        x: 5768
+        y: 2913
+        width: 824
+        height: 971
+      alignment: 9
+      pivot: {x: 0.5, y: 0.13}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: transshero_death_8
+      rect:
+        serializedVersion: 2
+        x: 6592
+        y: 2913
+        width: 824
+        height: 971
+      alignment: 9
+      pivot: {x: 0.5, y: 0.13}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: transshero_death_9
+      rect:
+        serializedVersion: 2
+        x: 7416
+        y: 2913
+        width: 824
+        height: 971
+      alignment: 9
+      pivot: {x: 0.5, y: 0.13}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: transshero_death_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1942
+        width: 824
+        height: 971
+      alignment: 9
+      pivot: {x: 0.5, y: 0.13}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: transshero_death_11
+      rect:
+        serializedVersion: 2
+        x: 824
+        y: 1942
+        width: 824
+        height: 971
+      alignment: 9
+      pivot: {x: 0.5, y: 0.13}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: transshero_death_12
+      rect:
+        serializedVersion: 2
+        x: 1648
+        y: 1942
+        width: 824
+        height: 971
+      alignment: 9
+      pivot: {x: 0.5, y: 0.13}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: transshero_death_13
+      rect:
+        serializedVersion: 2
+        x: 2472
+        y: 1941
+        width: 824
+        height: 971
+      alignment: 9
+      pivot: {x: 0.5, y: 0.13}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: transshero_death_14
+      rect:
+        serializedVersion: 2
+        x: 3296
+        y: 1942
+        width: 824
+        height: 971
+      alignment: 9
+      pivot: {x: 0.5, y: 0.13}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: transshero_death_15
+      rect:
+        serializedVersion: 2
+        x: 4120
+        y: 1942
+        width: 824
+        height: 971
+      alignment: 9
+      pivot: {x: 0.5, y: 0.13}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: transshero_death_16
+      rect:
+        serializedVersion: 2
+        x: 4944
+        y: 1942
+        width: 824
+        height: 971
+      alignment: 9
+      pivot: {x: 0.5, y: 0.13}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: transshero_death_17
+      rect:
+        serializedVersion: 2
+        x: 5768
+        y: 1942
+        width: 824
+        height: 971
+      alignment: 9
+      pivot: {x: 0.5, y: 0.13}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: transshero_death_18
+      rect:
+        serializedVersion: 2
+        x: 6592
+        y: 1942
+        width: 824
+        height: 971
+      alignment: 9
+      pivot: {x: 0.5, y: 0.13}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: transshero_death_19
+      rect:
+        serializedVersion: 2
+        x: 7416
+        y: 1942
+        width: 824
+        height: 971
+      alignment: 9
+      pivot: {x: 0.5, y: 0.13}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: transshero_death_20
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 971
+        width: 824
+        height: 971
+      alignment: 9
+      pivot: {x: 0.5, y: 0.13}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: transshero_death_21
+      rect:
+        serializedVersion: 2
+        x: 824
+        y: 971
+        width: 824
+        height: 971
+      alignment: 9
+      pivot: {x: 0.5, y: 0.13}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: transshero_death_22
+      rect:
+        serializedVersion: 2
+        x: 1648
+        y: 971
+        width: 824
+        height: 971
+      alignment: 9
+      pivot: {x: 0.5, y: 0.13}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: transshero_death_23
+      rect:
+        serializedVersion: 2
+        x: 2472
+        y: 971
+        width: 824
+        height: 971
+      alignment: 9
+      pivot: {x: 0.5, y: 0.13}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: transshero_death_24
+      rect:
+        serializedVersion: 2
+        x: 3296
+        y: 971
+        width: 824
+        height: 971
+      alignment: 9
+      pivot: {x: 0.5, y: 0.13}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: transshero_death_25
+      rect:
+        serializedVersion: 2
+        x: 4120
+        y: 971
+        width: 824
+        height: 971
+      alignment: 9
+      pivot: {x: 0.5, y: 0.13}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: transshero_death_26
+      rect:
+        serializedVersion: 2
+        x: 4944
+        y: 971
+        width: 824
+        height: 971
+      alignment: 9
+      pivot: {x: 0.5, y: 0.13}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: transshero_death_27
+      rect:
+        serializedVersion: 2
+        x: 5768
+        y: 971
+        width: 824
+        height: 971
+      alignment: 9
+      pivot: {x: 0.5, y: 0.13}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: transshero_death_28
+      rect:
+        serializedVersion: 2
+        x: 6592
+        y: 971
+        width: 824
+        height: 971
+      alignment: 9
+      pivot: {x: 0.5, y: 0.13}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: transshero_death_29
+      rect:
+        serializedVersion: 2
+        x: 7416
+        y: 971
+        width: 824
+        height: 971
+      alignment: 9
+      pivot: {x: 0.5, y: 0.13}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: transshero_death_30
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 824
+        height: 971
+      alignment: 9
+      pivot: {x: 0.5, y: 0.13}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: transshero_death_31
+      rect:
+        serializedVersion: 2
+        x: 824
+        y: 0
+        width: 824
+        height: 971
+      alignment: 9
+      pivot: {x: 0.5, y: 0.13}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: transshero_death_32
+      rect:
+        serializedVersion: 2
+        x: 1648
+        y: 0
+        width: 824
+        height: 971
+      alignment: 9
+      pivot: {x: 0.5, y: 0.13}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: transshero_death_33
+      rect:
+        serializedVersion: 2
+        x: 2472
+        y: 0
+        width: 824
+        height: 971
+      alignment: 9
+      pivot: {x: 0.5, y: 0.13}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    outline: []
+    physicsShape: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

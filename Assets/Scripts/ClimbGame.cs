@@ -80,6 +80,7 @@ public class ClimbGame : MonoBehaviour
     public void ResetWorld()
     {
         instance.player.health = instance.player.maxHP;
+        instance.player.anim.SetTrigger("reset");
         midGround.Initialize();
         globalSpeed = baseGlobalSpeed;
         KillAllEnemies();
@@ -96,7 +97,7 @@ public class ClimbGame : MonoBehaviour
         timeToStopInput       = Time.time + 9999.0f;
         timeToStartCameraAnim = Time.time + 9999.0f;
         timeToExitGameState   = Time.time + 9999.0f;
-        AppManager.instance.mainCamera.GetComponent<AudioSource>().Play();
+        AppManager.instance.mainCamera.PlayOneShot(AppManager.instance.mainCamera.climbMusic);
     }
 
     private float timeToRun = 3f;
@@ -180,12 +181,14 @@ public class ClimbGame : MonoBehaviour
                                                "onupdatetarget", AppManager.instance.menuController.gameObject,
                                                "easeType", "linear",
                                                "loopType", "none",
+                                               "delay", 2f,
                                                "time", 1f));
+        AppManager.instance.mainCamera.FadeOutAndStop(2f);
         AppManager.CallWithDelay(() => {
             ResetWorld();
             AppManager.instance.mainCamera.JumpToMenuState();
             AppManager.SwitchState(AppState.CLIMB_DEATH);
-        }, 1f);
+        }, 3f);
     }
 
     public void Update()
@@ -237,7 +240,7 @@ public class ClimbGame : MonoBehaviour
                 Destroy(e.gameObject);
             }
 
-            if (!e.alreadyHit && e.inclined.CollidesWith(player.inclined)) {
+            if (allowPlayerMovement && !e.alreadyHit && e.inclined.CollidesWith(player.inclined)) {
                 e.alreadyHit = true;
                 player.TakeDamage();
             }

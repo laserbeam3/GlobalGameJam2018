@@ -7,7 +7,7 @@ public class YodelerGame : MonoBehaviour
     public Camera yodelerCamera;
     public Transform yodelerGameArena;
 
-    public float bpm = 120.0f;
+    public float bpm = 123.0f;
     public float yodelerGameStartTime;
     public float nextBeatBarTime;
     public float noteTravelTime = 3f;
@@ -22,6 +22,7 @@ public class YodelerGame : MonoBehaviour
     public Note[] notePrefabs;
     public Note beatBarPrefab;
     public List<Note> activeNotes;
+    public float totalGameTime = 45f;
 
     bool isRunning = false;
 
@@ -54,11 +55,15 @@ public class YodelerGame : MonoBehaviour
 
         float t = Time.time - yodelerGameStartTime;
 
+        if (t >= totalGameTime) {
+            isRunning = false;
+        }
+
         if (t >= nextBeatBarTime) {
-            var b = Instantiate(beatBarPrefab, yodelerGameArena);
-            b.transform.localPosition = new Vector3(0, noteSpawnY, 0);
-            b.spawnTime = nextBeatBarTime;
-            activeNotes.Add(b);
+            // var b = Instantiate(beatBarPrefab, yodelerGameArena);
+            // b.transform.localPosition = new Vector3(0, noteSpawnY, 0);
+            // b.spawnTime = nextBeatBarTime;
+            // activeNotes.Add(b);
 
             if (Random.value < noteChance) {
                 var note = Instantiate(notePrefabs[Random.Range(0, notePrefabs.Length)], yodelerGameArena);

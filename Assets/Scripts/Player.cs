@@ -4,11 +4,13 @@ using UnityEngine;
 
 [RequireComponent(typeof(InclinedPlanePosition))]
 [RequireComponent(typeof(SpriteRenderer))]
+[RequireComponent(typeof(Animator))]
 public class Player : MonoBehaviour
 {
     public Color damageColor = Color.red;
     public InclinedPlanePosition inclined { get; private set; }
     public SpriteRenderer renderer { get; private set; }
+    public Animator anim { get; private set; }
     public float fwdSpeed = 4.0f;
     public float sideSpeed = 6.0f;
 
@@ -31,6 +33,7 @@ public class Player : MonoBehaviour
     {
         inclined = GetComponent<InclinedPlanePosition>();
         renderer = GetComponent<SpriteRenderer>();
+        anim     = GetComponent<Animator>();
         inclined.limitForward = true;
     }
 
@@ -53,7 +56,7 @@ public class Player : MonoBehaviour
 
     public void TakeDamage()
     {
-        health--;
+        // health--;
         iTween.StopByName("damageAnim");
         renderer.color = Color.white;
         iTween.ValueTo(gameObject, iTween.Hash("name", "damageAnim",
@@ -69,6 +72,7 @@ public class Player : MonoBehaviour
         }, 0.4f);
 
         if (health <= 0) {
+            anim.SetTrigger("death");
             AppManager.instance.climbGame.LoseGame();
         }
     }

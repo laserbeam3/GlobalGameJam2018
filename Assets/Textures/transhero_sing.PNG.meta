@@ -1,0 +1,857 @@
+fileFormatVersion: 2
+guid: 8386ef10d55204f8caf0d6027d5981a3
+timeCreated: 1517142009
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: transhero_sing_0
+    21300002: transhero_sing_1
+    21300004: transhero_sing_2
+    21300006: transhero_sing_3
+    21300008: transhero_sing_4
+    21300010: transhero_sing_5
+    21300012: transhero_sing_6
+    21300014: transhero_sing_7
+    21300016: transhero_sing_8
+    21300018: transhero_sing_9
+    21300020: transhero_sing_10
+    21300022: transhero_sing_11
+    21300024: transhero_sing_12
+    21300026: transhero_sing_13
+    21300028: transhero_sing_14
+    21300030: transhero_sing_15
+    21300032: transhero_sing_16
+    21300034: transhero_sing_17
+    21300036: transhero_sing_18
+    21300038: transhero_sing_19
+    21300040: transhero_sing_20
+    21300042: transhero_sing_21
+    21300044: transhero_sing_22
+    21300046: transhero_sing_23
+    21300048: transhero_sing_24
+    21300050: transhero_sing_25
+    21300052: transhero_sing_26
+    21300054: transhero_sing_27
+    21300056: transhero_sing_28
+    21300058: transhero_sing_29
+    21300060: transhero_sing_30
+    21300062: transhero_sing_31
+    21300064: transhero_sing_32
+    21300066: transhero_sing_33
+    21300068: transhero_sing_34
+    21300070: transhero_sing_35
+    21300072: transhero_sing_36
+    21300074: transhero_sing_37
+    21300076: transhero_sing_38
+    21300078: transhero_sing_39
+    21300080: transhero_sing_40
+    21300082: transhero_sing_41
+    21300084: transhero_sing_42
+    21300086: transhero_sing_43
+    21300088: transhero_sing_44
+    21300090: transhero_sing_45
+    21300092: transhero_sing_46
+    21300094: transhero_sing_47
+    21300096: transhero_sing_48
+    21300098: transhero_sing_49
+  externalObjects: {}
+  serializedVersion: 4
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -1
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 200
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - buildTarget: DefaultTexturePlatform
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - buildTarget: Standalone
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - buildTarget: Android
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - buildTarget: WebGL
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: transhero_sing_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3884
+        width: 824
+        height: 971
+      alignment: 9
+      pivot: {x: 0.5, y: 0.13}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: transhero_sing_1
+      rect:
+        serializedVersion: 2
+        x: 824
+        y: 3884
+        width: 824
+        height: 971
+      alignment: 9
+      pivot: {x: 0.5, y: 0.13}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: transhero_sing_2
+      rect:
+        serializedVersion: 2
+        x: 1648
+        y: 3884
+        width: 824
+        height: 971
+      alignment: 9
+      pivot: {x: 0.5, y: 0.13}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: transhero_sing_3
+      rect:
+        serializedVersion: 2
+        x: 2472
+        y: 3884
+        width: 824
+        height: 971
+      alignment: 9
+      pivot: {x: 0.5, y: 0.13}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: transhero_sing_4
+      rect:
+        serializedVersion: 2
+        x: 3296
+        y: 3884
+        width: 824
+        height: 971
+      alignment: 9
+      pivot: {x: 0.5, y: 0.13}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: transhero_sing_5
+      rect:
+        serializedVersion: 2
+        x: 4120
+        y: 3884
+        width: 824
+        height: 971
+      alignment: 9
+      pivot: {x: 0.5, y: 0.13}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: transhero_sing_6
+      rect:
+        serializedVersion: 2
+        x: 4944
+        y: 3884
+        width: 824
+        height: 971
+      alignment: 9
+      pivot: {x: 0.5, y: 0.13}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: transhero_sing_7
+      rect:
+        serializedVersion: 2
+        x: 5768
+        y: 3884
+        width: 824
+        height: 971
+      alignment: 9
+      pivot: {x: 0.5, y: 0.13}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: transhero_sing_8
+      rect:
+        serializedVersion: 2
+        x: 6592
+        y: 3884
+        width: 824
+        height: 971
+      alignment: 9
+      pivot: {x: 0.5, y: 0.13}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: transhero_sing_9
+      rect:
+        serializedVersion: 2
+        x: 7416
+        y: 3884
+        width: 824
+        height: 971
+      alignment: 9
+      pivot: {x: 0.5, y: 0.13}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: transhero_sing_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2913
+        width: 824
+        height: 971
+      alignment: 9
+      pivot: {x: 0.5, y: 0.13}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: transhero_sing_11
+      rect:
+        serializedVersion: 2
+        x: 824
+        y: 2913
+        width: 824
+        height: 971
+      alignment: 9
+      pivot: {x: 0.5, y: 0.13}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: transhero_sing_12
+      rect:
+        serializedVersion: 2
+        x: 1648
+        y: 2913
+        width: 824
+        height: 971
+      alignment: 9
+      pivot: {x: 0.5, y: 0.13}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: transhero_sing_13
+      rect:
+        serializedVersion: 2
+        x: 2472
+        y: 2913
+        width: 824
+        height: 971
+      alignment: 9
+      pivot: {x: 0.5, y: 0.13}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: transhero_sing_14
+      rect:
+        serializedVersion: 2
+        x: 3296
+        y: 2913
+        width: 824
+        height: 971
+      alignment: 9
+      pivot: {x: 0.5, y: 0.13}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: transhero_sing_15
+      rect:
+        serializedVersion: 2
+        x: 4120
+        y: 2913
+        width: 824
+        height: 971
+      alignment: 9
+      pivot: {x: 0.5, y: 0.13}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: transhero_sing_16
+      rect:
+        serializedVersion: 2
+        x: 4944
+        y: 2913
+        width: 824
+        height: 971
+      alignment: 9
+      pivot: {x: 0.5, y: 0.13}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: transhero_sing_17
+      rect:
+        serializedVersion: 2
+        x: 5768
+        y: 2913
+        width: 824
+        height: 971
+      alignment: 9
+      pivot: {x: 0.5, y: 0.13}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: transhero_sing_18
+      rect:
+        serializedVersion: 2
+        x: 6592
+        y: 2913
+        width: 824
+        height: 971
+      alignment: 9
+      pivot: {x: 0.5, y: 0.13}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: transhero_sing_19
+      rect:
+        serializedVersion: 2
+        x: 7416
+        y: 2913
+        width: 824
+        height: 971
+      alignment: 9
+      pivot: {x: 0.5, y: 0.13}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: transhero_sing_20
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1942
+        width: 824
+        height: 971
+      alignment: 9
+      pivot: {x: 0.5, y: 0.13}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: transhero_sing_21
+      rect:
+        serializedVersion: 2
+        x: 824
+        y: 1942
+        width: 824
+        height: 971
+      alignment: 9
+      pivot: {x: 0.5, y: 0.13}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: transhero_sing_22
+      rect:
+        serializedVersion: 2
+        x: 1648
+        y: 1942
+        width: 824
+        height: 971
+      alignment: 9
+      pivot: {x: 0.5, y: 0.13}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: transhero_sing_23
+      rect:
+        serializedVersion: 2
+        x: 2472
+        y: 1942
+        width: 824
+        height: 971
+      alignment: 9
+      pivot: {x: 0.5, y: 0.13}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: transhero_sing_24
+      rect:
+        serializedVersion: 2
+        x: 3296
+        y: 1942
+        width: 824
+        height: 971
+      alignment: 9
+      pivot: {x: 0.5, y: 0.13}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: transhero_sing_25
+      rect:
+        serializedVersion: 2
+        x: 4120
+        y: 1942
+        width: 824
+        height: 971
+      alignment: 9
+      pivot: {x: 0.5, y: 0.13}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: transhero_sing_26
+      rect:
+        serializedVersion: 2
+        x: 4944
+        y: 1942
+        width: 824
+        height: 971
+      alignment: 9
+      pivot: {x: 0.5, y: 0.13}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: transhero_sing_27
+      rect:
+        serializedVersion: 2
+        x: 5768
+        y: 1942
+        width: 824
+        height: 971
+      alignment: 9
+      pivot: {x: 0.5, y: 0.13}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: transhero_sing_28
+      rect:
+        serializedVersion: 2
+        x: 6592
+        y: 1942
+        width: 824
+        height: 971
+      alignment: 9
+      pivot: {x: 0.5, y: 0.13}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: transhero_sing_29
+      rect:
+        serializedVersion: 2
+        x: 7416
+        y: 1942
+        width: 824
+        height: 971
+      alignment: 9
+      pivot: {x: 0.5, y: 0.13}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: transhero_sing_30
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 971
+        width: 824
+        height: 971
+      alignment: 9
+      pivot: {x: 0.5, y: 0.13}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: transhero_sing_31
+      rect:
+        serializedVersion: 2
+        x: 824
+        y: 971
+        width: 824
+        height: 971
+      alignment: 9
+      pivot: {x: 0.5, y: 0.13}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: transhero_sing_32
+      rect:
+        serializedVersion: 2
+        x: 1648
+        y: 971
+        width: 824
+        height: 971
+      alignment: 9
+      pivot: {x: 0.5, y: 0.13}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: transhero_sing_33
+      rect:
+        serializedVersion: 2
+        x: 2472
+        y: 971
+        width: 824
+        height: 971
+      alignment: 9
+      pivot: {x: 0.5, y: 0.13}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: transhero_sing_34
+      rect:
+        serializedVersion: 2
+        x: 3296
+        y: 971
+        width: 824
+        height: 971
+      alignment: 9
+      pivot: {x: 0.5, y: 0.13}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: transhero_sing_35
+      rect:
+        serializedVersion: 2
+        x: 4120
+        y: 971
+        width: 824
+        height: 971
+      alignment: 9
+      pivot: {x: 0.5, y: 0.13}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: transhero_sing_36
+      rect:
+        serializedVersion: 2
+        x: 4944
+        y: 971
+        width: 824
+        height: 971
+      alignment: 9
+      pivot: {x: 0.5, y: 0.13}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: transhero_sing_37
+      rect:
+        serializedVersion: 2
+        x: 5768
+        y: 971
+        width: 824
+        height: 971
+      alignment: 9
+      pivot: {x: 0.5, y: 0.13}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: transhero_sing_38
+      rect:
+        serializedVersion: 2
+        x: 6592
+        y: 971
+        width: 824
+        height: 971
+      alignment: 9
+      pivot: {x: 0.5, y: 0.13}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: transhero_sing_39
+      rect:
+        serializedVersion: 2
+        x: 7416
+        y: 971
+        width: 824
+        height: 971
+      alignment: 9
+      pivot: {x: 0.5, y: 0.13}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: transhero_sing_40
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 824
+        height: 971
+      alignment: 9
+      pivot: {x: 0.5, y: 0.13}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: transhero_sing_41
+      rect:
+        serializedVersion: 2
+        x: 824
+        y: 0
+        width: 824
+        height: 971
+      alignment: 9
+      pivot: {x: 0.5, y: 0.13}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: transhero_sing_42
+      rect:
+        serializedVersion: 2
+        x: 1648
+        y: 0
+        width: 824
+        height: 971
+      alignment: 9
+      pivot: {x: 0.5, y: 0.13}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: transhero_sing_43
+      rect:
+        serializedVersion: 2
+        x: 2472
+        y: 0
+        width: 824
+        height: 971
+      alignment: 9
+      pivot: {x: 0.5, y: 0.13}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: transhero_sing_44
+      rect:
+        serializedVersion: 2
+        x: 3296
+        y: 0
+        width: 824
+        height: 971
+      alignment: 9
+      pivot: {x: 0.5, y: 0.13}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: transhero_sing_45
+      rect:
+        serializedVersion: 2
+        x: 4120
+        y: 0
+        width: 824
+        height: 971
+      alignment: 9
+      pivot: {x: 0.5, y: 0.13}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: transhero_sing_46
+      rect:
+        serializedVersion: 2
+        x: 4944
+        y: 0
+        width: 824
+        height: 971
+      alignment: 9
+      pivot: {x: 0.5, y: 0.13}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: transhero_sing_47
+      rect:
+        serializedVersion: 2
+        x: 5768
+        y: 0
+        width: 824
+        height: 971
+      alignment: 9
+      pivot: {x: 0.5, y: 0.13}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: transhero_sing_48
+      rect:
+        serializedVersion: 2
+        x: 6592
+        y: 0
+        width: 824
+        height: 971
+      alignment: 9
+      pivot: {x: 0.5, y: 0.13}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: transhero_sing_49
+      rect:
+        serializedVersion: 2
+        x: 7416
+        y: 0
+        width: 824
+        height: 971
+      alignment: 9
+      pivot: {x: 0.5, y: 0.13}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    outline: []
+    physicsShape: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Camera))]
+[RequireComponent(typeof(AudioSource))]
 public class CameraController : MonoBehaviour {
 
     public Vector3 GameCameraPos;
@@ -12,10 +13,43 @@ public class CameraController : MonoBehaviour {
     public Vector3 YodelerCameraPos;
     public float   YodelerCameraSize = 10;
 
+    public AudioClip climbMusic;
+    public AudioClip singMusic;
+
+    private AudioSource audio;
     private Camera cam;
+
+    public void SetVolume(float volume)
+    {
+        audio.volume = Mathf.Clamp(volume, 0f, 1f);
+    }
+
+    public void PlayOneShot(AudioClip clip)
+    {
+        audio.PlayOneShot(clip);
+    }
+
+    public void FadeOutAndStop(float time)
+    {
+        FadeVolume(0f, time);
+        AppManager.CallWithDelay(() => audio.Stop(), time);
+    }
+
+    public void FadeVolume(float to, float time)
+    {
+        iTween.StopByName("volFade");
+        iTween.ValueTo(gameObject, iTween.Hash("name", "volFade",
+                                               "from", audio.volume,
+                                               "to", to,
+                                               "onupdate", "SetVolume",
+                                               "easeType", "linear",
+                                               "loopType", "none",
+                                               "time", time));
+    }
 
     void Start() {
         cam = GetComponent<Camera>();
+        audio = GetComponent<AudioSource>();
     }
 
     public void AnimateToYodelerPos()

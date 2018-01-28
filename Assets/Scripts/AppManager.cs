@@ -128,6 +128,7 @@ public class AppManager : MonoBehaviour
             } break;
 
             case AppState.YODELER_GAME: {
+                instance.climbGame.player.anim.SetTrigger("sing");
                 instance.climbGame.KillAllEnemies();
                 // Scroll arrows
                 // Measure acuracy of pressing said arrows
