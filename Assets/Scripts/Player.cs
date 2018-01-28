@@ -3,9 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(InclinedPlanePosition))]
+[RequireComponent(typeof(SpriteRenderer))]
 public class Player : MonoBehaviour
 {
+    public Color damageColor = Color.red;
     public InclinedPlanePosition inclined { get; private set; }
+    public SpriteRenderer renderer { get; private set; }
     public float fwdSpeed = 4.0f;
     public float sideSpeed = 6.0f;
 
@@ -27,6 +30,7 @@ public class Player : MonoBehaviour
     void Awake()
     {
         inclined = GetComponent<InclinedPlanePosition>();
+        renderer = GetComponent<SpriteRenderer>();
         inclined.limitForward = true;
     }
 
@@ -47,4 +51,19 @@ public class Player : MonoBehaviour
         pos += new Vector2(fwdInput, sideInput);
     }
 
+    public void TakeDamage()
+    {
+        health--;
+        iTween.StopByName("damageAnim");
+        renderer.color = Color.white;
+        iTween.ColorTo(gameObject, iTween.Hash("name", "damageAnim",
+                                               "color", damageColor,
+                                               "easeType", "easeInOutExpo",
+                                               "loopType", "pingPong",
+                                               "time", 0.1f));
+        AppManager.CallWithDelay(() => {
+            iTween.StopByName("damageAnim");
+            renderer.color = Color.white;
+        }, 0.4f);
+    }
 }

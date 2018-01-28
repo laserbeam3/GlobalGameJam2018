@@ -6,6 +6,7 @@ using UnityEngine;
 public class EnemyTest : MonoBehaviour
 {
     public float speed = 0f;
+    public bool alreadyHit;
 
     public InclinedPlanePosition inclined { get; private set; }
     public Vector2 pos {

@@ -94,6 +94,7 @@ public class ClimbGame : MonoBehaviour
         timeToStopInput       = Time.time + 9999.0f;
         timeToStartCameraAnim = Time.time + 9999.0f;
         timeToExitGameState   = Time.time + 9999.0f;
+        AppManager.instance.mainCamera.GetComponent<AudioSource>().Play();
     }
 
     private float timeToRun = 3f;
@@ -192,8 +193,9 @@ public class ClimbGame : MonoBehaviour
                 Destroy(e.gameObject);
             }
 
-            if (e.inclined.CollidesWith(player.inclined)) {
-                // Do collision logic
+            if (!e.alreadyHit && e.inclined.CollidesWith(player.inclined)) {
+                e.alreadyHit = true;
+                player.TakeDamage();
             }
         }
 

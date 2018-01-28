@@ -102,28 +102,20 @@ public class AppManager : MonoBehaviour
 
         switch (newState) {
             case AppState.MENU: {
-                // Play game button
+                instance.climbGame.ResetWorld();
             } break;
 
             case AppState.START_GAME_TRANSITION: {
                 instance.climbGame.ResetWorld();
-                CallWithDelay(() => { SwitchState(AppState.CLIMB_GAME); }, 5.0f);
-                // Start running
-                // Start spawning enemies.
+                CallWithDelay(() => { SwitchState(AppState.CLIMB_GAME); }, 2.5f);
             } break;
 
             case AppState.CLIMB_GAME: {
-                // Run climb game (spawn enemies, move enemies).
-                // Paralax backgrounds.
-                // Move terrain.
             } break;
 
             case AppState.CLIMB_TO_YODELER_TRANSITION: {
                 CallWithDelay(() => { SwitchState(AppState.YODELER_GAME); }, 5.0f);
-                // TODO: Stop spawning enemies.
                 // Animate terrain change.
-                // Move player to position.
-                // Zoom out.
                 // Countdown to Yodeler game.
             } break;
 
