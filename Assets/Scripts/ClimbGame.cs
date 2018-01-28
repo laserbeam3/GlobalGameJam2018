@@ -12,7 +12,8 @@ public class ClimbGame : MonoBehaviour
     public static ClimbGame instance { get; private set; }
 
     public  float           nextEnemySpawnTime    = 0;
-    public  float           globalSpeed           = 2.0f;
+    public  float           baseGlobalSpeed       = 3.0f;
+    public  float           globalSpeed           = 3.0f;
     public  float           minEmenySpawnDelta    = 1.0f;
     public  float           maxEnemySpawnDelta    = 4.0f;
     public  List<EnemyTest> enemies               = new List<EnemyTest>(32);
@@ -80,6 +81,7 @@ public class ClimbGame : MonoBehaviour
     {
         instance.player.health = instance.player.maxHP;
         midGround.Initialize();
+        globalSpeed = baseGlobalSpeed;
         KillAllEnemies();
     }
 
@@ -142,6 +144,48 @@ public class ClimbGame : MonoBehaviour
             Destroy(enemies[i].gameObject);
         }
         enemies.Clear();
+    }
+
+    public void LoseGame()
+    {
+        timeToStopSpawning    = Time.time + 9999.0f;
+        timeToStopInput       = Time.time + 9999.0f;
+        timeToStartCameraAnim = Time.time + 9999.0f;
+        timeToExitGameState   = Time.time + 9999.0f;
+
+        allowPlayerMovement = false;
+        globalSpeed = 0;
+
+        AppManager.CallWithDelay(() => PrepareLossScreen(), 2f);
+        // iTween.ValueTo(gameObject, iTween.Hash("from", globalSpeed,
+        //                                        "to", 0,
+        //                                        "onupdate", "UpdateWorldSpeed",
+        //                                        "oncomplete", "PrepareLossScreen",
+        //                                        "easeType", "easeOutExpo",
+        //                                        "loopType", "none",
+        //                                        "time", 1f));
+    }
+
+    // public void UpdateWorldSpeed(float speed)
+    // {
+    //     globalSpeed = speed;
+
+    // }
+
+    public void PrepareLossScreen()
+    {
+        iTween.ValueTo(gameObject, iTween.Hash("from", 0.0f,
+                                               "to", 1.0f,
+                                               "onupdate", "SetDeathScreenAlpha",
+                                               "onupdatetarget", AppManager.instance.menuController.gameObject,
+                                               "easeType", "linear",
+                                               "loopType", "none",
+                                               "time", 1f));
+        AppManager.CallWithDelay(() => {
+            ResetWorld();
+            AppManager.instance.mainCamera.JumpToMenuState();
+            AppManager.SwitchState(AppState.CLIMB_DEATH);
+        }, 1f);
     }
 
     public void Update()

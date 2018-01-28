@@ -35,12 +35,19 @@ public class CameraController : MonoBehaviour {
                                                    "time", 3f));
     }
 
+    public void JumpToMenuState()
+    {
+        transform.position = MainMenuCameraPos;
+        cam.orthographicSize = MainMenuCameraSize;
+    }
+
     public void AnimateTransition(AppState newState)
     {
         iTween.Stop(gameObject);
 
         Debug.Log("Animate camera to: " + newState);
         switch (newState) {
+            case AppState.CLIMB_DEATH:
             case AppState.MENU: {
                 if (transform.position != MainMenuCameraPos)
                     iTween.MoveTo(gameObject, iTween.Hash("position", MainMenuCameraPos,
@@ -57,7 +64,6 @@ public class CameraController : MonoBehaviour {
             } break;
 
             case AppState.START_GAME_TRANSITION:
-            case AppState.CLIMB_DEATH:
             case AppState.CLIMB_GAME:
             case AppState.YODELER_TO_CLIMB_TRANSITION: {
                 if (transform.position != GameCameraPos)

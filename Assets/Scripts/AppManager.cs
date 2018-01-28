@@ -46,7 +46,7 @@ public class AppManager : MonoBehaviour
 
     public void Update()
     {
-        if (Input.GetKeyUp("x")) SwitchToNextState();
+        // if (Input.GetKeyUp("x")) SwitchToNextState();
 
         switch (currentState) {
             case AppState.MENU: {
@@ -59,6 +59,14 @@ public class AppManager : MonoBehaviour
             } break;
 
             case AppState.CLIMB_GAME: {
+            } break;
+
+            case AppState.CLIMB_DEATH: {
+                if (Input.GetButtonUp("Submit")) {
+                    instance.menuController.SetDeathScreenAlpha(0);
+                    instance.menuController.MoveMenu(instance.menuController.MenuVisiblePos);
+                    SwitchState(AppState.MENU);
+                }
             } break;
 
             case AppState.CLIMB_TO_YODELER_TRANSITION: {

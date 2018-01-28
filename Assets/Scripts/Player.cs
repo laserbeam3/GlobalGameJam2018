@@ -56,8 +56,10 @@ public class Player : MonoBehaviour
         health--;
         iTween.StopByName("damageAnim");
         renderer.color = Color.white;
-        iTween.ColorTo(gameObject, iTween.Hash("name", "damageAnim",
-                                               "color", damageColor,
+        iTween.ValueTo(gameObject, iTween.Hash("name", "damageAnim",
+                                               "from", Color.white,
+                                               "to", damageColor,
+                                               "onupdate", "SetRenderColor",
                                                "easeType", "easeInOutExpo",
                                                "loopType", "pingPong",
                                                "time", 0.1f));
@@ -65,5 +67,14 @@ public class Player : MonoBehaviour
             iTween.StopByName("damageAnim");
             renderer.color = Color.white;
         }, 0.4f);
+
+        if (health <= 0) {
+            AppManager.instance.climbGame.LoseGame();
+        }
+    }
+
+    public void SetRenderColor(Color c)
+    {
+        renderer.color = c;
     }
 }

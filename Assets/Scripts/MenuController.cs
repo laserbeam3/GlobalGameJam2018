@@ -1,14 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 [RequireComponent(typeof(Canvas))]
 public class MenuController : MonoBehaviour {
 
-    private Vector2 MenuVisiblePos;
-    private Vector2 MenuInvisiblePos;
+    public Vector2 MenuVisiblePos { get; private set; }
+    public Vector2 MenuInvisiblePos { get; private set; }
 
     public RectTransform menu;
+    public CanvasGroup deathScreen;
     private Canvas canvas;
     private Vector2 canvasSize;
 
@@ -57,7 +59,13 @@ public class MenuController : MonoBehaviour {
         }
     }
 
-    public void MoveMenu(Vector2 position){
+    public void MoveMenu(Vector2 position)
+    {
         menu.anchoredPosition = position;
+    }
+
+    public void SetDeathScreenAlpha(float alpha)
+    {
+        deathScreen.alpha = alpha;
     }
 }
