@@ -5,8 +5,10 @@ using UnityEngine;
 [RequireComponent(typeof(SpriteRenderer))]
 public class Note : MonoBehaviour
 {
+    public enum Key { up, down, left, right }
+
     public float spawnTime;
-    public string key;
+    public Key key;
     public bool interactible;
     public bool wasActivated { get; private set; }
     public bool wasMissed { get; private set; }

@@ -70,14 +70,23 @@ public class YodelerGame : MonoBehaviour
             nextBeatBarTime += 60.0f / bpm;
         }
 
+        bool[] keys       = { false, false, false, false };
+        bool[] keyCorrect = { false, false, false, false };
+        keys[(int)Note.Key.up]    = Input.GetKeyDown("up")    || Input.GetKeyDown("w");
+        keys[(int)Note.Key.down]  = Input.GetKeyDown("down")  || Input.GetKeyDown("s");
+        keys[(int)Note.Key.left]  = Input.GetKeyDown("left")  || Input.GetKeyDown("a");
+        keys[(int)Note.Key.right] = Input.GetKeyDown("right") || Input.GetKeyDown("d");
+
         for (int i = 0; i < activeNotes.Count; ++i) {
             var note = activeNotes[i];
             float ellapsed = t - note.spawnTime;
             float d = (ellapsed / noteTravelTime) * (notePerfectY - noteSpawnY);
             float dist = Mathf.Abs(noteTravelTime - ellapsed);
             var scale = note.transform.localScale;
+
             if (dist < hitRange) {
-                if (note.interactible && Input.GetKeyDown("space")) note.Activate();
+                keyCorrect[(int)note.key] = true;
+                if (note.interactible && keys[(int)note.key]) note.Activate();
                 scale.x = 1 + (hitRange - dist) / hitRange;
             } else {
                 scale.x = 1;

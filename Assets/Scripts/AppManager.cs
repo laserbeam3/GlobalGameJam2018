@@ -106,6 +106,7 @@ public class AppManager : MonoBehaviour
             } break;
 
             case AppState.START_GAME_TRANSITION: {
+                instance.climbGame.ResetWorld();
                 CallWithDelay(() => { SwitchState(AppState.CLIMB_GAME); }, 5.0f);
                 // Start running
                 // Start spawning enemies.

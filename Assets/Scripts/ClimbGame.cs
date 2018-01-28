@@ -76,14 +76,19 @@ public class ClimbGame : MonoBehaviour
 
     public int laneCount = 3;
  
-    public void StartGame()
+    public void ResetWorld()
     {
         instance.player.health = instance.player.maxHP;
+        midGround.Initialize();
         KillAllEnemies();
+    }
+
+    public void StartGame()
+    {
+        ResetWorld();
         nextEnemySpawnTime = Time.time;
         allowPlayerMovement = true;
         gameStartTime = Time.time;
-        midGround.Initialize();
 
         timeToStopSpawning    = Time.time + 9999.0f;
         timeToStopInput       = Time.time + 9999.0f;
