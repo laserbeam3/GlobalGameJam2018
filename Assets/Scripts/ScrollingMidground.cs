@@ -13,12 +13,14 @@ public class ScrollingMidground : MonoBehaviour
     public Transform[] roadTiles;
     public Transform cliff;
 
+    private bool cliffPlaced = false;
     private bool jumpTiles = true;
     private bool stopMovement = false;
     public float cliffStop = 22.8f;
 
-    void Start()
+    public void Initialize()
     {
+        cliffPlaced = false;
         grassWidth = grassTiles[0].GetComponent<SpriteRenderer>().sprite.bounds.size.x;
         roadWidth  = roadTiles[0].GetComponent<SpriteRenderer>().sprite.bounds.size.y;
         for (int i = 0; i < grassTiles.Length; ++i) {
@@ -28,6 +30,7 @@ public class ScrollingMidground : MonoBehaviour
         for (int i = 0; i < roadTiles.Length; ++i) {
             roadTiles[i].localPosition = new Vector3(i * roadWidth, 0, 29);
         }
+        cliff.localPosition = new Vector3(100, 0, 28);
     }
 
     public void Move(float distance)
@@ -50,9 +53,10 @@ public class ScrollingMidground : MonoBehaviour
 
             tile.localPosition += new Vector3(distance, 0, 0);
 
-            if (jumpTiles && tile.localPosition.x < 0) {
+            if (tile.localPosition.x < 0) {
                 float d = roadWidth * roadTiles.Length;
-                tile.localPosition += new Vector3(d, 0, 0);
+                float y = (tile.localPosition.x + d < cliff.localPosition.x - roadTiles.Length) ? 0 : 100;
+                tile.localPosition += new Vector3(d, y, 0);
             }
         }
 
@@ -64,6 +68,16 @@ public class ScrollingMidground : MonoBehaviour
         }
     }
 
+    public float GetDistanceToEnd() {
+        float maxX = 0;
+
+        for (int i = 0; i < grassTiles.Length; ++i) {
+            var tile = grassTiles[i];
+            maxX = Mathf.Max(maxX, tile.localPosition.x);
+        }
+        return maxX + grassWidth - cliffStop;
+    }
+
     public float StopTilingAndGetDistanceToEnd() {
         jumpTiles = false;
         float maxX = 0;
@@ -72,7 +86,8 @@ public class ScrollingMidground : MonoBehaviour
             var tile = grassTiles[i];
             maxX = Mathf.Max(maxX, tile.localPosition.x);
         }
-        cliff.localPosition = new Vector3(maxX + grassWidth, 0, 31);
+        cliff.localPosition = new Vector3(maxX + grassWidth, 0, 28);
+        cliffPlaced = true;
 
         return cliff.localPosition.x - cliffStop;
     }

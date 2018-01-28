@@ -11,14 +11,23 @@ public class ClimbGame : MonoBehaviour
 
     public static ClimbGame instance { get; private set; }
 
-    public float           nextEnemySpawnTime = 0;
-    public float           globalSpeed        = 2.0f;
-    public float           minEmenySpawnDelta = 1.0f;
-    public float           maxEnemySpawnDelta = 4.0f;
-    public List<EnemyTest> enemies            = new List<EnemyTest>(32);
+    public  float           nextEnemySpawnTime    = 0;
+    public  float           globalSpeed           = 2.0f;
+    public  float           minEmenySpawnDelta    = 1.0f;
+    public  float           maxEnemySpawnDelta    = 4.0f;
+    public  List<EnemyTest> enemies               = new List<EnemyTest>(32);
 
-    private bool isRunning = false;
-    public bool allowPlayerMovement = false;
+    private bool            isRunning             = false;
+    public  bool            allowPlayerMovement   = false;
+    private float           gameStartTime;
+    public  float           estimatedClimbTime    = 90.0f;
+    private float           timeToStopSpawning    = 9999.0f;
+    private float           timeToStopInput       = 9999.0f;
+    private float           timeToExitGameState   = 9999.0f;
+    private float           timeToStartCameraAnim = 9999.0f;
+
+    public  float           walkToYodelerTime     = 3.5f;
+    public  float           cameraToYodelerTime   = 3f;
 
     public Vector3 forward
     {
@@ -57,12 +66,12 @@ public class ClimbGame : MonoBehaviour
 
     public float spawnForward
     {
-        get { return maxForward * 2; }
+        get { return maxForward * 2.5f; }
     }
 
     public float despawnForward
     {
-        get { return minForward * 2; }
+        get { return minForward * 4f; }
     }
 
     public int laneCount = 3;
@@ -72,8 +81,14 @@ public class ClimbGame : MonoBehaviour
         instance.player.health = instance.player.maxHP;
         KillAllEnemies();
         nextEnemySpawnTime = Time.time;
-        //AppManager.CallWithDelay(() => {PrepareEnd();}, 2f);
         allowPlayerMovement = true;
+        gameStartTime = Time.time;
+        midGround.Initialize();
+
+        timeToStopSpawning    = Time.time + 9999.0f;
+        timeToStopInput       = Time.time + 9999.0f;
+        timeToStartCameraAnim = Time.time + 9999.0f;
+        timeToExitGameState   = Time.time + 9999.0f;
     }
 
     private float timeToRun = 3f;
@@ -82,24 +97,25 @@ public class ClimbGame : MonoBehaviour
         float distance = midGround.StopTilingAndGetDistanceToEnd();
         float timeToEnd = distance / globalSpeed;
         Debug.Log(distance + " " + timeToEnd);
-        float timeToStopInput = timeToEnd - timeToRun;
-        AppManager.CallWithDelay(() => {StopInputAndMoveToYolderPose();}, timeToStopInput);
+
+        timeToStopSpawning    = Time.time + timeToEnd - 10f;
+        timeToStopInput       = Time.time + timeToEnd - walkToYodelerTime;
+        timeToStartCameraAnim = Time.time + timeToEnd - cameraToYodelerTime;
+        timeToExitGameState   = Time.time + timeToEnd;
     }
 
-    public void StopInputAndMoveToYolderPose()
+    public void AnimateCamToYodelerPose()
+    {
+        AppManager.instance.mainCamera.AnimateToYodelerPos();
+    }
+
+    public void StopPlayerInput()
     {
         allowPlayerMovement = false;
         iTween.MoveTo(player.gameObject, iTween.Hash("position", new Vector3(6.7f, 2f, 0f),
                                                      "easeType", "linear",
                                                      "loopType", "none",
                                                      "time", timeToRun));
-        AppManager.instance.mainCamera.AnimateToYodelerPos();
-
-        // iTween.ScaleTo(player.gameObject, iTween.Hash("scale", new Vector3(0.5f, 0.5f, 0.5f),
-        //                                               "easeType", "linear",
-        //                                               "loopType", "none",
-        //                                               "time", timeToRun));
-
     }
 
     public void SetAppState(AppState newState) {
@@ -114,7 +130,8 @@ public class ClimbGame : MonoBehaviour
         midGround.transform.eulerAngles = new Vector3(0, 0, rot);
     }
 
-    public void KillAllEnemies() {
+    public void KillAllEnemies()
+    {
         for (int i = 0; i < enemies.Count; ++i) {
             Destroy(enemies[i].gameObject);
         }
@@ -126,8 +143,23 @@ public class ClimbGame : MonoBehaviour
         if (AppManager.currentState != AppState.CLIMB_GAME) return;
 
         float delta = Time.deltaTime;
+        float gameTime = Time.time - gameStartTime;
 
-        if (Time.time > nextEnemySpawnTime) {
+        if (Time.time >= timeToStopInput) {
+            StopPlayerInput();
+            timeToStopInput += 999999f;
+        }
+
+        if (Time.time >= timeToStartCameraAnim) {
+            AnimateCamToYodelerPose();
+            timeToStartCameraAnim += 999999f;
+        }
+
+        if (Time.time >= timeToExitGameState) {
+            AppManager.SwitchState(AppState.YODELER_GAME);
+        }
+
+        if (Time.time >= nextEnemySpawnTime && Time.time < timeToStopSpawning) {
             var prefab = obstaclePrefabs[Random.Range(0, obstaclePrefabs.Length)];
             var e = Instantiate(prefab).GetComponent<EnemyTest>();
             enemies.Add(e);
@@ -137,7 +169,12 @@ public class ClimbGame : MonoBehaviour
             e.pos = new Vector2(spawnForward, Random.Range(-1, 2) * side);
 
             nextEnemySpawnTime += Random.Range(minEmenySpawnDelta, maxEnemySpawnDelta);
-        }
+
+            if (midGround.GetDistanceToEnd() / globalSpeed + gameTime > estimatedClimbTime) {
+                Debug.Log("now!");
+                PrepareEnd();
+            }
+       }
 
         for (int i = 0; i < enemies.Count; ++i) {
             var e = enemies[i];

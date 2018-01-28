@@ -61,9 +61,6 @@ public class AppManager : MonoBehaviour
             case AppState.CLIMB_GAME: {
             } break;
 
-            case AppState.CLIMB_DEATH: {
-            } break;
-
             case AppState.CLIMB_TO_YODELER_TRANSITION: {
             } break;
 
@@ -118,11 +115,6 @@ public class AppManager : MonoBehaviour
                 // Run climb game (spawn enemies, move enemies).
                 // Paralax backgrounds.
                 // Move terrain.
-            } break;
-
-            case AppState.CLIMB_DEATH: {
-                // Stop swapning.
-                // Stop moving terrain.
             } break;
 
             case AppState.CLIMB_TO_YODELER_TRANSITION: {
