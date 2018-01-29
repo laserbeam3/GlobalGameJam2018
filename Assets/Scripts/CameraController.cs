@@ -82,8 +82,8 @@ public class CameraController : MonoBehaviour {
 
     public void JumpToMenuState()
     {
-        transform.position = MainMenuCameraPos;
         cam.orthographicSize = MainMenuCameraSize;
+        transform.position = MainMenuCameraPos;
     }
 
     public void AnimateTransition(AppState newState)

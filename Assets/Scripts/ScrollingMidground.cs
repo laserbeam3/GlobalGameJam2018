@@ -20,6 +20,8 @@ public class ScrollingMidground : MonoBehaviour
 
     public void Initialize()
     {
+        stopMovement = false;
+        jumpTiles = true;
         cliffPlaced = false;
         grassWidth = grassTiles[0].GetComponent<SpriteRenderer>().sprite.bounds.size.x;
         roadWidth  = roadTiles[0].GetComponent<SpriteRenderer>().sprite.bounds.size.y;

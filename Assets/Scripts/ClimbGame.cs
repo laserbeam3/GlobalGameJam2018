@@ -82,6 +82,7 @@ public class ClimbGame : MonoBehaviour
     {
         instance.player.health = instance.player.maxHP;
         instance.player.anim.SetTrigger("reset");
+        AppManager.instance.mainCamera.SetVolume(1f);
         midGround.Initialize();
         globalSpeed = baseGlobalSpeed;
         KillAllEnemies();
