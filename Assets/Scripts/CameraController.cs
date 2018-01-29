@@ -82,6 +82,7 @@ public class CameraController : MonoBehaviour {
 
     public void JumpToMenuState()
     {
+        iTween.Stop(gameObject);
         cam.orthographicSize = MainMenuCameraSize;
         transform.position = MainMenuCameraPos;
     }

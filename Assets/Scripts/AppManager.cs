@@ -72,9 +72,6 @@ public class AppManager : MonoBehaviour
             } break;
 
             case AppState.YODELER_TO_CLIMB_TRANSITION: {
-                AppManager.CallWithDelay(() => {
-                    AppManager.instance.climbGame.alien.SetTrigger("run");
-                }, 2f);
             } break;
         }
     }
@@ -129,7 +126,9 @@ public class AppManager : MonoBehaviour
             } break;
 
             case AppState.YODELER_TO_CLIMB_TRANSITION: {
-                //
+                AppManager.CallWithDelay(() => {
+                    AppManager.instance.climbGame.alien.SetTrigger("run");
+                }, 2f);
             } break;
         }
 

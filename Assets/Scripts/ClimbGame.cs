@@ -80,6 +80,7 @@ public class ClimbGame : MonoBehaviour
  
     public void ResetWorld()
     {
+        instance.player.renderer.enabled = true;
         AppManager.instance.menuController.SetHPDisplayAlpha(0f);
         instance.player.health = instance.player.maxHP;
         instance.player.anim.SetTrigger("reset");
