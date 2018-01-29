@@ -11,6 +11,7 @@ public class MenuController : MonoBehaviour {
 
     public RectTransform menu;
     public CanvasGroup deathScreen;
+    public CanvasGroup hpDisplay;
     private Canvas canvas;
     private Vector2 canvasSize;
 
@@ -66,5 +67,10 @@ public class MenuController : MonoBehaviour {
     public void SetDeathScreenAlpha(float alpha)
     {
         deathScreen.alpha = alpha;
+    }
+
+    public void SetHPDisplayAlpha(float alpha)
+    {
+        hpDisplay.alpha = alpha;
     }
 }

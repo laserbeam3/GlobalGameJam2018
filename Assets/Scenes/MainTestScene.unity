@@ -1286,7 +1286,7 @@ CanvasGroup:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 849800238}
   m_Enabled: 1
-  m_Alpha: 1
+  m_Alpha: 0
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
@@ -2423,6 +2423,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   menu: {fileID: 1493778999}
   deathScreen: {fileID: 1196816755}
+  hpDisplay: {fileID: 849800243}
 --- !u!1 &1828102168
 GameObject:
   m_ObjectHideFlags: 0

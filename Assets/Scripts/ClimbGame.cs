@@ -80,6 +80,7 @@ public class ClimbGame : MonoBehaviour
  
     public void ResetWorld()
     {
+        AppManager.instance.menuController.SetHPDisplayAlpha(0f);
         instance.player.health = instance.player.maxHP;
         instance.player.anim.SetTrigger("reset");
         AppManager.instance.mainCamera.SetVolume(1f);
@@ -100,6 +101,7 @@ public class ClimbGame : MonoBehaviour
         timeToStartCameraAnim = Time.time + 9999.0f;
         timeToExitGameState   = Time.time + 9999.0f;
         AppManager.instance.mainCamera.PlayOneShot(AppManager.instance.mainCamera.climbMusic);
+        AppManager.instance.menuController.SetHPDisplayAlpha(1f);
     }
 
     private float timeToRun = 3f;
@@ -122,6 +124,7 @@ public class ClimbGame : MonoBehaviour
 
     public void StopPlayerInput()
     {
+        AppManager.instance.menuController.SetHPDisplayAlpha(0f);
         allowPlayerMovement = false;
         iTween.MoveTo(player.gameObject, iTween.Hash("position", new Vector3(6.7f, 2f, 0f),
                                                      "easeType", "linear",
