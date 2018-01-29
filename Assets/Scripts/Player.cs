@@ -56,7 +56,7 @@ public class Player : MonoBehaviour
 
     public void TakeDamage()
     {
-        // health--;
+        health--;
         iTween.StopByName("damageAnim");
         renderer.color = Color.white;
         iTween.ValueTo(gameObject, iTween.Hash("name", "damageAnim",
@@ -69,7 +69,7 @@ public class Player : MonoBehaviour
         AppManager.CallWithDelay(() => {
             iTween.StopByName("damageAnim");
             renderer.color = Color.white;
-        }, 0.4f);
+        }, 0.45f);
 
         if (health <= 0) {
             anim.SetTrigger("death");

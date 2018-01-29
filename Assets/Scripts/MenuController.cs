@@ -45,7 +45,6 @@ public class MenuController : MonoBehaviour {
             case AppState.CLIMB_DEATH:
             case AppState.CLIMB_GAME:
             case AppState.YODELER_TO_CLIMB_TRANSITION:
-            case AppState.CLIMB_TO_YODELER_TRANSITION:
             case AppState.YODELER_GAME: {
                 if (menu.anchoredPosition != MenuInvisiblePos)
                     iTween.ValueTo(menu.gameObject, iTween.Hash("from", menu.anchoredPosition,

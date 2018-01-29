@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ClimbGame : MonoBehaviour
 {
+    public Animator alien;
     public Player player;
     public GameObject logicalPlane;
     public EnemyTest[] obstaclePrefabs;

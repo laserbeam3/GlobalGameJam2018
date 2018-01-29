@@ -7,7 +7,6 @@ public enum AppState {
     START_GAME_TRANSITION,
     CLIMB_GAME,
     CLIMB_DEATH,
-    CLIMB_TO_YODELER_TRANSITION,
     YODELER_GAME,
     YODELER_TO_CLIMB_TRANSITION,
     NUM_STATES
@@ -20,13 +19,13 @@ public class AppManager : MonoBehaviour
     public MenuController menuController;
     public ClimbGame climbGame;
     public YodelerGame yodelerGame;
-    public bool debugEnabled = true;
+    public bool debugEnabled = false;
 
     public static AppManager instance { get; private set; }
     public AppState startingState = AppState.MENU;
     public static AppState currentState { get; private set; }
 
-    public void Start()
+    public void Awake()
     {
         if (instance == null) instance = this;
         currentState = startingState;
@@ -69,13 +68,13 @@ public class AppManager : MonoBehaviour
                 }
             } break;
 
-            case AppState.CLIMB_TO_YODELER_TRANSITION: {
-            } break;
-
             case AppState.YODELER_GAME: {
             } break;
 
             case AppState.YODELER_TO_CLIMB_TRANSITION: {
+                AppManager.CallWithDelay(() => {
+                    AppManager.instance.climbGame.alien.SetTrigger("run");
+                }, 2f);
             } break;
         }
     }
@@ -84,7 +83,7 @@ public class AppManager : MonoBehaviour
     {
         if (!debugEnabled) return;
 
-        GUILayout.Label(currentState.ToString());
+        // GUILayout.Label(currentState.ToString());
     }
 
     public static void SwitchToNextState()
@@ -99,14 +98,14 @@ public class AppManager : MonoBehaviour
     public static void SwitchState(AppState newState) {
         if (newState == currentState) return;
 
+        Debug.Log("Switch state to: " + newState);
+
         instance.mainCamera.AnimateTransition(newState);
         instance.menuController.AnimateTransition(newState);
         instance.climbGame.SetAppState(newState);
 
         if (newState == AppState.YODELER_GAME)
             instance.yodelerGame.StartYodelerGame();
-        else
-            instance.yodelerGame.EndYodelerGame();
 
         switch (newState) {
             case AppState.MENU: {
@@ -119,12 +118,6 @@ public class AppManager : MonoBehaviour
             } break;
 
             case AppState.CLIMB_GAME: {
-            } break;
-
-            case AppState.CLIMB_TO_YODELER_TRANSITION: {
-                CallWithDelay(() => { SwitchState(AppState.YODELER_GAME); }, 5.0f);
-                // Animate terrain change.
-                // Countdown to Yodeler game.
             } break;
 
             case AppState.YODELER_GAME: {

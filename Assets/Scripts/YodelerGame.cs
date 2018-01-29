@@ -10,7 +10,7 @@ public class YodelerGame : MonoBehaviour
     public float bpm = 123.0f;
     public float yodelerGameStartTime;
     public float nextBeatBarTime;
-    public float noteTravelTime = 3f;
+    public float noteTravelTime = 2f;
     public float noteSpawnY = - 7;
     public float notePerfectY = 3;
     public float noteDespawnY = 20;
@@ -18,45 +18,60 @@ public class YodelerGame : MonoBehaviour
     public float noteChance = 0.4f;
     public float arenaMinX = -4;
     public float arenaMaxX = 4;
+    private float endGameTime;
 
     public Note[] notePrefabs;
     public Note beatBarPrefab;
     public List<Note> activeNotes;
     public float totalGameTime = 45f;
 
-    bool isRunning = false;
+    bool yodelerIsRunning = false;
 
     void Start()
-    {
-        EndYodelerGame();
-    }
-
-    public void StartYodelerGame()
-    {
-        yodelerGameStartTime = Time.time;
-        nextBeatBarTime = 0;
-        isRunning = true;
-        yodelerCamera.enabled = true;
-    }
-
-    public void EndYodelerGame()
     {
         for (int i = 0; i < activeNotes.Count; ++i) {
             Destroy(activeNotes[i].gameObject);
         }
         activeNotes.Clear();
-        isRunning = false;
+        yodelerIsRunning = false;
         yodelerCamera.enabled = false;
+        AppManager.instance.mainCamera.FadeOutAndStop(1.0f);
+
+    }
+
+    public void StartYodelerGame()
+    {
+        yodelerGameStartTime = Time.time;
+        nextBeatBarTime = 45.0f / bpm;
+        yodelerIsRunning = true;
+        endGameTime = totalGameTime + noteTravelTime * 2;
+        yodelerCamera.enabled = true;
+        AppManager.instance.mainCamera.SetVolume(1.0f);
+        AppManager.instance.mainCamera.PlayOneShot(AppManager.instance.mainCamera.singMusic);
+    }
+
+    public void EndYodelerGame()
+    {
+        Debug.Log("End Yodeler Game");
+        for (int i = 0; i < activeNotes.Count; ++i) {
+            Destroy(activeNotes[i].gameObject);
+        }
+        activeNotes.Clear(); 
+        yodelerIsRunning = false;
+        yodelerCamera.enabled = false;
+        AppManager.instance.mainCamera.FadeOutAndStop(1.0f);
+        AppManager.SwitchState(AppState.YODELER_TO_CLIMB_TRANSITION);
     }
 
     void Update ()
     {
-        if (!isRunning) return;
+        if (!yodelerIsRunning) return;
 
         float t = Time.time - yodelerGameStartTime;
 
-        if (t >= totalGameTime) {
-            isRunning = false;
+        if (t >= endGameTime) {
+            EndYodelerGame();
+            // Debug.Log("EndYodelerGame???");
         }
 
         if (t >= nextBeatBarTime) {
@@ -65,7 +80,7 @@ public class YodelerGame : MonoBehaviour
             // b.spawnTime = nextBeatBarTime;
             // activeNotes.Add(b);
 
-            if (Random.value < noteChance) {
+            if (t <= totalGameTime && Random.value < noteChance) {
                 var note = Instantiate(notePrefabs[Random.Range(0, notePrefabs.Length)], yodelerGameArena);
                 note.transform.localPosition = new Vector3(Random.Range(arenaMinX, arenaMaxX), noteSpawnY, 0);
                 note.spawnTime = nextBeatBarTime;
@@ -103,11 +118,11 @@ public class YodelerGame : MonoBehaviour
                 if (ellapsed > noteTravelTime + hitRange) note.Miss();
             }
 
-            if (d > noteDespawnY) {
-                activeNotes[i] = activeNotes[activeNotes.Count-1];
-                i--;
-                Destroy(note.gameObject);
-            }
+            // if (d > noteDespawnY) {
+            //     activeNotes[i] = activeNotes[activeNotes.Count-1];
+            //     i--;
+            //     Destroy(note.gameObject);
+            // }
         }
     }
 }

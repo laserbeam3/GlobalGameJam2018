@@ -12,11 +12,13 @@ public class CameraController : MonoBehaviour {
     public float   MainMenuCameraSize = 5;
     public Vector3 YodelerCameraPos;
     public float   YodelerCameraSize = 10;
+    public Vector3 AlienCameraPos;
+    public float   AlienCameraSize = 10;
 
     public AudioClip climbMusic;
     public AudioClip singMusic;
 
-    private AudioSource audio;
+    public AudioSource audio;
     private Camera cam;
 
     public void SetVolume(float volume)
@@ -33,6 +35,15 @@ public class CameraController : MonoBehaviour {
     {
         FadeVolume(0f, time);
         AppManager.CallWithDelay(() => audio.Stop(), time);
+    }
+
+    public void AnimateUpExit()
+    {
+        if (transform.position != YodelerCameraPos)
+            iTween.MoveTo(gameObject, iTween.Hash("position", AlienCameraPos + new Vector3(0, 10, 0),
+                                                  "easeType", "easeInOutExpo",
+                                                  "loopType", "none",
+                                                  "time", 3f));
     }
 
     public void FadeVolume(float to, float time)
@@ -79,7 +90,6 @@ public class CameraController : MonoBehaviour {
     {
         iTween.Stop(gameObject);
 
-        Debug.Log("Animate camera to: " + newState);
         switch (newState) {
             case AppState.CLIMB_DEATH:
             case AppState.MENU: {
@@ -98,8 +108,7 @@ public class CameraController : MonoBehaviour {
             } break;
 
             case AppState.START_GAME_TRANSITION:
-            case AppState.CLIMB_GAME:
-            case AppState.YODELER_TO_CLIMB_TRANSITION: {
+            case AppState.CLIMB_GAME: {
                 if (transform.position != GameCameraPos)
                     iTween.MoveTo(gameObject, iTween.Hash("position", GameCameraPos,
                                                           "easeType", "easeInOutExpo",
@@ -114,9 +123,23 @@ public class CameraController : MonoBehaviour {
                                                            "time", 3f));
             } break;
 
-            case AppState.CLIMB_TO_YODELER_TRANSITION:
             case AppState.YODELER_GAME: {
                 AnimateToYodelerPos();
+            } break;
+
+            case AppState.YODELER_TO_CLIMB_TRANSITION: {
+                if (transform.position != AlienCameraPos)
+                    iTween.MoveTo(gameObject, iTween.Hash("position", AlienCameraPos,
+                                                          "easeType", "easeInOutExpo",
+                                                          "loopType", "none",
+                                                          "time", 3f));
+                if (cam.orthographicSize != AlienCameraSize)
+                    iTween.ValueTo(gameObject, iTween.Hash("from", cam.orthographicSize,
+                                                           "to", AlienCameraSize,
+                                                           "onupdate", "UpdateCamSize",
+                                                           "easeType", "easeInOutExpo",
+                                                           "loopType", "none",
+                                                           "time", 3f));
             } break;
         }
     }
