@@ -93,6 +93,7 @@ public class ClimbGame : MonoBehaviour
     public void StartGame()
     {
         ResetWorld();
+        AppManager.instance.player.anim.SetTrigger("walk");
         nextEnemySpawnTime = Time.time;
         allowPlayerMovement = true;
         gameStartTime = Time.time;

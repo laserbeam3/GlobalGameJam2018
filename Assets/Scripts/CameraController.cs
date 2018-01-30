@@ -23,7 +23,7 @@ public class CameraController : MonoBehaviour {
 
     public void SetVolume(float volume)
     {
-        audio.volume = Mathf.Clamp(volume, 0f, 1f);
+        audio.volume = Mathf.Clamp(volume, 0f, 0.7f);
     }
 
     public void PlayOneShot(AudioClip clip)

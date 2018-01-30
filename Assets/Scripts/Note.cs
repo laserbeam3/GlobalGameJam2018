@@ -15,6 +15,9 @@ public class Note : MonoBehaviour
 
     public void Activate() {
         if (wasMissed) return;
+        if (!wasActivated) {
+            AppManager.instance.effects.PlayYodle();
+        }
         wasActivated = true;
         GetComponent<SpriteRenderer>().color = Color.green;
     }

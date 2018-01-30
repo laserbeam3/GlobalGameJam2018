@@ -11,6 +11,7 @@ public class MenuController : MonoBehaviour {
 
     public RectTransform menu;
     public CanvasGroup deathScreen;
+    public CanvasGroup credits;
     public CanvasGroup hpDisplay;
     private Canvas canvas;
     private Vector2 canvasSize;
@@ -31,7 +32,8 @@ public class MenuController : MonoBehaviour {
         iTween.Stop(menu.gameObject);
 
         switch (newState) {
-            case AppState.MENU: {
+            case AppState.MENU:
+            case AppState.CREDITS: {
                 if (menu.anchoredPosition != MenuVisiblePos)
                     iTween.ValueTo(menu.gameObject, iTween.Hash("from", menu.anchoredPosition,
                                                                 "to", MenuVisiblePos,
@@ -67,6 +69,11 @@ public class MenuController : MonoBehaviour {
     public void SetDeathScreenAlpha(float alpha)
     {
         deathScreen.alpha = alpha;
+    }
+
+    public void SetCreditsAlpha(float alpha)
+    {
+        credits.alpha = alpha;
     }
 
     public void SetHPDisplayAlpha(float alpha)

@@ -12,6 +12,7 @@ public class ScrollingMidground : MonoBehaviour
     public Transform[] grassTiles;
     public Transform[] roadTiles;
     public Transform cliff;
+    public Transform roadEnd;
 
     private bool cliffPlaced = false;
     private bool jumpTiles = true;
@@ -57,12 +58,15 @@ public class ScrollingMidground : MonoBehaviour
 
             if (tile.localPosition.x < 0) {
                 float d = roadWidth * roadTiles.Length;
-                float y = (tile.localPosition.x + d < cliff.localPosition.x - roadTiles.Length) ? 0 : 100;
+                float y = (tile.localPosition.x + d < cliff.localPosition.x - (2 * roadTiles.Length)) ? 0 : 100;
                 tile.localPosition += new Vector3(d, y, 0);
+                if (y == 0)
+                    roadEnd.localPosition = new Vector3(tile.localPosition.x + roadWidth, 0, 28);
             }
         }
 
         if (!jumpTiles) {
+            roadEnd.localPosition += new Vector3(distance, 0, 0);
             cliff.localPosition += new Vector3(distance, 0, 0);
             if (cliff.localPosition.x < cliffStop) {
                 stopMovement = true;
@@ -88,7 +92,15 @@ public class ScrollingMidground : MonoBehaviour
             var tile = grassTiles[i];
             maxX = Mathf.Max(maxX, tile.localPosition.x);
         }
-        cliff.localPosition = new Vector3(maxX + grassWidth, 0, 28);
+        cliff.localPosition = new Vector3(maxX + grassWidth, 0, 27);
+
+        maxX = 0;
+        for (int i = 0; i < roadTiles.Length; ++i) {
+            var tile = roadTiles[i];
+            maxX = Mathf.Max(maxX, tile.localPosition.x);
+        }
+        roadEnd.localPosition = new Vector3(maxX + roadWidth, 0, 28);
+
         cliffPlaced = true;
 
         return cliff.localPosition.x - cliffStop;

@@ -9,7 +9,7 @@ public class Alien : MonoBehaviour
         AppManager.instance.player.renderer.enabled = false;
         AppManager.instance.mainCamera.AnimateUpExit();
         AppManager.CallWithDelay(() => {
-            AppManager.SwitchState(AppState.MENU);
+            AppManager.SwitchState(AppState.CREDITS);
             AppManager.instance.mainCamera.JumpToMenuState();
         }, 4f);
     }

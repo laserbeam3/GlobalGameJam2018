@@ -9,12 +9,14 @@ public enum AppState {
     CLIMB_DEATH,
     YODELER_GAME,
     YODELER_TO_CLIMB_TRANSITION,
+    CREDITS,
     NUM_STATES
 }
 
 public class AppManager : MonoBehaviour
 {
     public Player player;
+    public SoundEffects effects;
     public CameraController mainCamera;
     public MenuController menuController;
     public ClimbGame climbGame;
@@ -28,6 +30,7 @@ public class AppManager : MonoBehaviour
     public void Awake()
     {
         if (instance == null) instance = this;
+        effects = GetComponent<SoundEffects>();
         currentState = startingState;
         SwitchState(startingState);
     }
@@ -51,6 +54,8 @@ public class AppManager : MonoBehaviour
             case AppState.MENU: {
                 if (Input.GetButtonUp("Submit")) {
                     SwitchState(AppState.START_GAME_TRANSITION);
+                } else if (Input.GetKeyUp(KeyCode.Escape)) {
+                    Application.Quit();
                 }
             } break;
 
@@ -72,6 +77,14 @@ public class AppManager : MonoBehaviour
             } break;
 
             case AppState.YODELER_TO_CLIMB_TRANSITION: {
+            } break;
+
+            case AppState.CREDITS: {
+                if (Input.GetButtonUp("Submit")) {
+                    SwitchState(AppState.MENU);
+                } else if (Input.GetKeyUp(KeyCode.Escape)) {
+                    Application.Quit();
+                }
             } break;
         }
     }
@@ -100,6 +113,7 @@ public class AppManager : MonoBehaviour
         instance.mainCamera.AnimateTransition(newState);
         instance.menuController.AnimateTransition(newState);
         instance.climbGame.SetAppState(newState);
+        instance.menuController.SetCreditsAlpha(0);
 
         if (newState == AppState.YODELER_GAME)
             instance.yodelerGame.StartYodelerGame();
@@ -126,10 +140,15 @@ public class AppManager : MonoBehaviour
             } break;
 
             case AppState.YODELER_TO_CLIMB_TRANSITION: {
+                // instance.menuController.SetCreditsAlpha(1);
                 AppManager.CallWithDelay(() => {
                     AppManager.instance.climbGame.alien.SetTrigger("run");
                 }, 2f);
             } break;
+
+            case AppState.CREDITS: {
+                instance.menuController.SetCreditsAlpha(1);
+                } break;
         }
 
         currentState = newState;
